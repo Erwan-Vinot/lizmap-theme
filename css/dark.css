@@ -52,7 +52,7 @@ Palette : https://coolors.co/691e27-0e0d1e-202341-474c79-6d75b1-a2a6c4-d6d6d6-ff
 }
 
 
-/* ---------------------- Web client - corps du site et fond / body and background ------------------------ */
+/* ---------------------- Web client - Home - corps du site et fond / body and background ------------------------ */
 
 body {
     color: var(--accent); /* Texte blanc / white text */
@@ -62,7 +62,7 @@ body {
 }
 
 
-/* ----------------------------------- Web client - Projets / Projects ------------------------------------- */
+/* ----------------------------------- Web client - Home - Projets / Projects ------------------------------------- */
 
 .liz-project-desc,
 .liz-project-desc.title,
@@ -84,7 +84,7 @@ body {
 
 
 
-/* ------------------------------------------ Web client - Barre du haut / Header -------------------------------------------- */
+/* ------------------------------------------ Web client - Home - Barre du haut / Header -------------------------------------------- */
 
 #title, #logo, .pull-right {
     display: none; /* Cacher choses superflues - hide useless stuff */
@@ -124,7 +124,7 @@ body {
 }
 
 
-/* ---------------------- Web client - Barre de recherche ------------------------ */
+/* --------------------------------------- Web client - Home - Barre de recherche / Searchbar --------------------------------------- */
 
 #toggle-search {
     display: none; /* Cacher choses superflues - hide useless stuff */
@@ -142,8 +142,8 @@ body {
 #search-project {
     width: 70%;
     padding: 1%;
-    margin-top: 1%;
     padding-left: 4%;
+    margin-top: 1%;
     border-radius: 5px;
     border: 1px solid var(--mid);
     background-color: var(--darkest-transparent);
@@ -165,3 +165,23 @@ body {
 }
 
 
+/* -------------------------------------------- Web client - Home - erreurs / errors ---------------------------------------------- */
+
+/* messages d'alerte en rouge et placement au milieu */
+.alert-block {
+    z-index: 20000;
+    position: fixed;
+    transform: translate(-50%, -50%);
+}
+
+.alert-danger,
+.alert-error {
+    color: var(--accent);
+    border: 1px solid var(--greyed);
+    background-color: var(--error);
+}
+
+.alert .close {
+    color: var(--accent);
+    opacity: 0.7;
+}
