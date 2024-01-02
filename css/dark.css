@@ -37,11 +37,13 @@ Palette : https://coolors.co/691e27-0e0d1e-202341-474c79-6d75b1-a2a6c4-d6d6d6-ff
 
 
 /* -------------------------- Variables et Couleurs / Variables and colors ----------------------------- */
+
 :root {
 
     /* couleurs - colors  */
     --error: #691e27d6;
     --darkest: #0e0d1e;
+    --darkest-transparent: #0e0d1e5a;
     --dark: #202341;
     --mid: #474c79;
     --light: #6d75b1;
@@ -62,7 +64,6 @@ body {
 
 /* ----------------------------------- Web client - Projets / Projects ------------------------------------- */
 
-
 .liz-project-desc,
 .liz-project-desc.title,
 .liz-project-desc.abstract,
@@ -75,8 +76,48 @@ body {
 }
 
 .thumbnail {
-    background-color: transparent !important; /* Cacher fond blanc des projets - hide projects's white bg  */
+    background-color: transparent !important; /* Cacher fond blanc des projets - hide projects' white bg  */
     border: 1px solid var(--dark); 
     border-radius: 4%; /* coins arrondis - round corners  */
-    padding: 5%; /* petite marge intérieure */
+    padding: 5%;       /* petite marge intérieure */
 }
+
+
+
+/* ------------------------------------------ Barre du haut / Header -------------------------------------------- */
+
+#title, #logo, .pull-right {
+    display: none; /* Cacher choses superflues - hide useless stuff */
+}
+
+#header {
+    height: 0%; /* Cacher le header de base - Hide default header */
+}
+
+/* partie "connexion" qui remplace le header de base - sign in zone that replaces the default header */
+#auth {
+    /* Fixe le nouveau header en haut de l'écran et au-dessus des autres éléments - stick the new header to the top and above the body */
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    height: 3%;
+    width: 100%;
+
+    /* center les éléments en hauteur et les placer à droite - vertically center items and put them on the right */
+    display: flex;
+    justify-content: right;
+    align-items: center;
+
+    /* ligne courbée sous le header pour séparer le fond - curved line to separate the header from the body */
+    background:var(--darkest-transparent);
+    border-color: var(--mid); 
+    border-bottom-left-radius: 30%; 
+    border-bottom-right-radius: 30%;
+}
+
+.navbar .nav.pull-right {
+    margin-right: 20%;  /* espacement à droite des éléments - add spacing on the right */
+}
+
+
+
