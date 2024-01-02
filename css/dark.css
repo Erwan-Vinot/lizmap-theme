@@ -47,7 +47,7 @@ Palette : https://coolors.co/691e27-0e0d1e-202341-474c79-6d75b1-a2a6c4-d6d6d6-ff
     --dark: #202341;
     --mid: #474c79;
     --light: #6d75b1;
-    --greyed: #d6d6d6;
+    --greyed: #b5b5b5;
     --accent: #fff;
 }
 
@@ -84,7 +84,7 @@ body {
 
 
 
-/* ------------------------------------------ Barre du haut / Header -------------------------------------------- */
+/* ------------------------------------------ Web client - Barre du haut / Header -------------------------------------------- */
 
 #title, #logo, .pull-right {
     display: none; /* Cacher choses superflues - hide useless stuff */
@@ -119,5 +119,49 @@ body {
     margin-right: 20%;  /* espacement à droite des éléments - add spacing on the right */
 }
 
+.navbar .nav>li>a {
+    color:var(--greyed) /* texte des items en gris - item text greyed */
+}
+
+
+/* ---------------------- Web client - Barre de recherche ------------------------ */
+
+#toggle-search {
+    display: none; /* Cacher choses superflues - hide useless stuff */
+}
+
+#search {
+    /* Fixe la barre de recherche au-dessus du header - stick the searchbar above the header */
+    z-index: 11001;
+    position: fixed;
+    top: 0;
+    left:0;
+    margin-left: 21%;
+}
+
+#search-project {
+    width: 70%;
+    padding: 1%;
+    margin-top: 1%;
+    padding-left: 4%;
+    border-radius: 5px;
+    border: 1px solid var(--mid);
+    background-color: var(--darkest-transparent);
+    font-family: inherit; /* force la police Century Gothic - keep default font (Century Gothic) */
+}
+
+#search-project::placeholder {
+    color: var(--greyed); /* "Rechercher" en gris - placeholder in grey */
+}
+
+#search-project:hover { 
+    border-color: var(--light); /* bordure plus claire en passant la souris dessus - lighter border on hover */
+}
+
+#search-project:focus  { 
+    /* bordure et texte blanc quand la barre est cliquée - white text and border on click */
+    border-color: var(--accent);
+    color: var(--accent);
+}
 
 
