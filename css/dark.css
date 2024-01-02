@@ -45,8 +45,11 @@ Palette : https://coolors.co/691e27-0e0d1e-202341-474c79-6d75b1-a2a6c4-d6d6d6-ff
     --darkest: #0e0d1e;
     --darkest-transparent: #0e0d1e5a;
     --dark: #202341;
+    --dark-transparent: #2023415a;
     --mid: #474c79;
+    --mid-transparent: #474c795a;
     --light: #6d75b1;
+    --light-transparent: #6d75b15a;
     --greyed: #b5b5b5;
     --accent: #fff;
 
@@ -149,11 +152,12 @@ body {
     width: 100%;
     position: relative;
     background-size: 200% 200%;
-    background: var(--gradient1); /* ajout d'un dégradé sur le fond sombre uni */
-    animation: gradientAnimation 15s linear infinite alternate; /* déplacement du dégradré via animation */
+    background: var(--gradient1); /* ajout d'un dégradé sur le fond sombre uni - add gradient on top of the dark background*/
+    animation: gradientAnimation 15s linear infinite alternate; /* déplacement du dégradré via animation - move the gradient using animations*/
 }
 
 /* utilisation de after et before pour ajouter les deux autres dégradés avec des vitesses d'animation différentes */
+/* after & before used to add two other gradients that are animated at different speeds*/
 body::after {
     background: var(--gradient2);
     animation: gradientAnimation 11s linear infinite alternate;
@@ -164,7 +168,7 @@ body::before {
     animation: gradientAnimation 13s linear infinite alternate;
 }
 
-/* on place les deux dégradés au-dessus du fond */
+/* on place les deux dégradés au-dessus du fond - put the two other gradients on top of body's background */
 body::before,
 body::after {
     top: 0;
@@ -174,10 +178,9 @@ body::after {
     width: 100%;
     position: absolute;
     background-size: 200% 200%;
-
 }
 
-/* Paramètres de l'animation des dégradés: déplacement de gauche à droite */
+/* Paramètres de l'animation des dégradés: déplacement de gauche à droite - animation : left to right translation */
 @keyframes gradientAnimation {
     0% {
         background-position: 0% 0%;
@@ -188,7 +191,7 @@ body::after {
         background-position: 100% 100%;
         animation-timing-function: ease-in-out;
     }
-}z
+}
 
 
 /* ----------------------------------- Web client - Home - Projets / Projects ------------------------------------- */
@@ -204,13 +207,48 @@ body::after {
     display: none !important; /* Cacher choses superflues - hide useless stuff */
 }
 
+/* ajustement style texte titre groupe de projet - change repo title text style*/
+.liz-repository-title { 
+    padding-top: 3%;
+    padding-left: 3%;
+    font-size: 19pt;
+}
+
+/* ajustement style texte titre projet - change title text style */
+.thumbnail h5 {
+    font-size: 13pt !important;
+    margin-bottom: -1% !important;
+}
+
+.liz-project-img {
+    width: 10vw;
+    border-radius: 10px;
+}
+
 .thumbnail {
+    position: relative;
     background-color: transparent !important; /* Cacher fond blanc des projets - hide projects' white bg  */
     border: 1px solid var(--dark); 
     border-radius: 4%; /* coins arrondis - round corners  */
-    padding: 5%;       /* petite marge intérieure */
+    padding: 5%;       /* petite marge intérieure - small inside margin */
+    box-shadow: 0px 4px 24px 1px var(--darkest-transparent); /* ombre - shadow */
+    background: linear-gradient(183deg,var(--dark-transparent) 0%,var(--darkest-transparent) 66%), /* dégradé intérieur gauche-droite - gradient left-right */
+                linear-gradient(331deg,var(--darkest-transparent) 0%,var(--mid-transparent) 94% /* dégradé intérieur haut-bas - gradient up-down */
+    );
+    background-blend-mode: screen, screen;
+
+    /* flou sous la boite - blur under the project box */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    -moz-backdrop-filter: blur(5px);
 }
 
+/* passage de la souris sur un projet - hover on project */
+.thumbnail:hover {
+    transform: scale(1.06) rotateX(-10deg); /* effet d'agrandissement - pop-out effect */
+    box-shadow: 0 0px 15px var(--mid), inset 0 0 30px var(--light), inset 0 0 70px var(--mid);; /* ombre moins sombre et lueur interne - lighter shadow and inner glow */
+    transition: transform 0.2s ease, box-shadow 1s ease; /* durée des transitions d'entrée des effets - transition duration */
+}
 
 
 /* ------------------------------------------ Web client - Home - Barre du haut / Header -------------------------------------------- */
@@ -225,7 +263,8 @@ body::after {
 
 /* partie "connexion" qui remplace le header de base - sign in zone that replaces the default header */
 #auth {
-    /* Fixe le nouveau header en haut de l'écran et au-dessus des autres éléments - stick the new header to the top and above the body */
+    /* Fixe le nouveau header en haut de l'écran et au-dessus des autres éléments */
+    /* stick the new header to the top and above the body */
     z-index: 1000;
     position: fixed;
     top: 0;
