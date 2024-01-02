@@ -151,8 +151,8 @@ body {
     height: max(100vh, 100%);
     width: 100%;
     position: relative;
-    background-size: 200% 200%;
     background: var(--gradient1); /* ajout d'un dégradé sur le fond sombre uni - add gradient on top of the dark background*/
+    background-size: 200% 200%;
     animation: gradientAnimation 15s linear infinite alternate; /* déplacement du dégradré via animation - move the gradient using animations*/
 }
 
