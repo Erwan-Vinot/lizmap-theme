@@ -18,4 +18,65 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE. */
+SOFTWARE.
+
+
+
+---------------------------------------------- info ----------------------------------------------
+
+WIP Pure CSS theme for https://www.geo70.fr/index.php/view/ 
+Site powered by LizMap.
+Cannot edit JS or HTML.
+
+Commented for CSS beginners in french and english
+
+Palette : https://coolors.co/691e27-0e0d1e-202341-474c79-6d75b1-a2a6c4-d6d6d6-ffffff
+
+------------------------------------------------------------------------------------------------*/
+
+
+
+/* -------------------------- Variables et Couleurs / Variables and colors ----------------------------- */
+:root {
+
+    /* couleurs - colors  */
+    --error: #691e27d6;
+    --darkest: #0e0d1e;
+    --dark: #202341;
+    --mid: #474c79;
+    --light: #6d75b1;
+    --greyed: #d6d6d6;
+    --accent: #fff;
+}
+
+
+/* ---------------------- Web client - corps du site et fond / body and background ------------------------ */
+
+body {
+    color: var(--accent); /* Texte blanc / white text */
+    background-color: var(--darkest) !important; /* fond sombre uni / solid dark background */
+    height: max(100vh, 100%);
+    width: 100%;
+}
+
+
+/* ----------------------------------- Web client - Projets / Projects ------------------------------------- */
+
+
+.liz-project-desc,
+.liz-project-desc.title,
+.liz-project-desc.abstract,
+.liz-project-desc.keywordList,
+.liz-project-desc.proj,
+.liz-project-desc.bbox,
+.btn.liz-project-view,
+.btn.liz-project-show-desc {
+    display: none !important; /* Cacher choses superflues - hide useless stuff */
+}
+
+.thumbnail {
+    background-color: transparent !important; /* Cacher fond blanc des projets - hide projects's white bg  */
+    border: 1px solid var(--dark); 
+    border-radius: 4%; /* coins arrondis - round corners  */
+    padding: 5%; /* petite marge intérieure */
+}
