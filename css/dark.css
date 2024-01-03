@@ -217,6 +217,13 @@ body::after {
     font-size: 19pt;
 }
 
+/* centrer l'image - center img */
+.liz-project {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* ajustement style texte titre projet - change title text style */
 .thumbnail h5 {
     font-size: 13pt !important;
@@ -225,8 +232,10 @@ body::after {
 
 /* ajustement taille et coins image projet - ajust project img size and corners */
 .liz-project-img {
-    width: 10vw;
     border-radius: 10px;
+    height: 200px;
+    width: 200px;
+    -webkit-filter: drop-shadow(0 0 15px var(--darkest-transparent)); 
 }
 
 .thumbnail { /* boites projet - projects box */
