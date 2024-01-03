@@ -32,8 +32,11 @@ Commented for CSS beginners in french and english
 Palette : https://coolors.co/691e27-0e0d1e-202341-474c79-6d75b1-a2a6c4-d6d6d6-ffffff
 
 base gradient 1 : https://www.joshwcomeau.com/gradient-generator?colors=0e0d1e|202341|6d75b1|202341|0e0d1e&angle=140&colorMode=hsl&precision=20&easingCurve=0.709051724137931|0.5905172413793104|0.0021551724137931034|0.39655172413793105
-            2 : https://www.joshwcomeau.com/gradient-generator?colors=0e0d1e|202341|6d75b1|202341|0e0d1e&angle=140&colorMode=hsl&precision=20&easingCurve=0.709051724137931|0.5905172413793104|0.30387931034482757|0.4482758620689655 
-            3 : https://www.joshwcomeau.com/gradient-generator?colors=0e0d1e|202341|6d75b1|202341|0e0d1e&angle=140&colorMode=hsl&precision=20&easingCurve=0.3728448275862069|0.05603448275862069|-0.05|0.33189655172413796
+              2 : https://www.joshwcomeau.com/gradient-generator?colors=0e0d1e|202341|6d75b1|202341|0e0d1e&angle=140&colorMode=hsl&precision=20&easingCurve=0.709051724137931|0.5905172413793104|0.30387931034482757|0.4482758620689655 
+              3 : https://www.joshwcomeau.com/gradient-generator?colors=0e0d1e|202341|6d75b1|202341|0e0d1e&angle=140&colorMode=hsl&precision=20&easingCurve=0.3728448275862069|0.05603448275862069|-0.05|0.33189655172413796
+
+You can get my code from here but make sure you give credit!
+https://github.com/Erwan-Vinot/lizmap-theme 
 
 ------------------------------------------------------------------------------------------------*/
 
@@ -456,7 +459,10 @@ body::after {
 
 /* ------------------------------------------ Web client - Home - Barre du haut / Header -------------------------------------------- */
 
-#title, #logo, .pull-right {
+#title,
+#logo,
+.pull-right img ,
+.nav > .pull-right {
     display: none; /* Cacher choses superflues - hide useless stuff */
 }
 
@@ -599,7 +605,7 @@ a:active .icon {
 }
 
 
-/* ---------------------- Web client - Administration - Auth ------------------------ */
+/* ----------------------------------------- Web client - Page de connexion / Auth page ------------------------------------------- */
 
 fieldset {
     border-color: var(--mid);
@@ -617,9 +623,16 @@ fieldset {
 }
 
 
+/* -------------------------------------------- Web client - Administration  ---------------------------------------------- */
+
 /* même effet que .thumbnail des projets - same effect as thumbnails */
-.jforms-ctrl-secret, .jforms-ctrl-input, .btn {
-    color:var(--accent);
+/* devrait s'appliquer à tous les boutons - should affect all buttons */
+.container-fluid input,
+.jforms-ctrl-secret,
+.jforms-ctrl-input,
+.btn {
+    color:var(--accent) !important;
+    font-weight: normal !important;
     text-shadow: none;
     font: inherit;
     background-color: transparent !important;
@@ -640,7 +653,10 @@ fieldset {
     ;
 }
 
-.jforms-ctrl-secret:hover, .jforms-ctrl-input:hover, .btn:hover {
+.container-fluid input:hover,
+.jforms-ctrl-secret:hover,
+.jforms-ctrl-input:hover,
+.btn:hover {
     color:var(--accent);
     text-shadow: none;
     transform: scalex(1.02) scaley(1.06) rotateX(-15deg);  
@@ -654,14 +670,86 @@ fieldset {
     ; 
 }
 
-.jforms-ctrl-secret:not(:hover), .jforms-ctrl-input:not(:hover), .btn:not(:hover){
+.container-fluid input:not(:hover),
+.jforms-ctrl-secret:not(:hover),
+.jforms-ctrl-input:not(:hover),
+.btn:not(:hover){
     transition: 
         transform 0.1s ease,
         box-shadow 2s ease 
     ; 
 }
 
-.jforms-ctrl-secret:focus, .jforms-ctrl-input:focus, .btn:focus{
+.container-fluid input:focus,
+.jforms-ctrl-secret:focus,
+.jforms-ctrl-input:focus,
+.btn:focus{
     color:var(--accent);
     text-shadow: none;
+}
+
+/* le navigateur à gauche */
+.well {
+    position: fixed; /* toujours visible à l'écran même si on scroll */
+    left: 2%;
+    top: 10%;
+    background: none;
+    border-color: var(--mid)
+}
+
+.well a,
+.well li{ /*liens */
+    color:var(--accent) !important;
+    font-weight: normal !important;
+    text-shadow: none !important;
+}
+
+.nav>li>a:hover { 
+    background: var(--mid)
+}
+
+.nav-list>.active>a { /* page active */
+    background: var(--light);
+    color:black;
+    font-weight: bold !important;
+}
+
+/* sous titres moins gros fix certaines pages avec scroll inutile (logs et projets)*/
+.container-fluid h2 {
+    font-size: 15pt;
+    line-height: 13pt;
+}
+
+/* gestion des cartes */
+legend {
+    color: var(--greyed);
+}
+
+#lizmap_project_list {
+    border:none;
+}
+
+.container-fluid a {
+    font-weight: bold;
+    color:var(--light);
+}
+
+table.lizmap_project_list tr .liz-warning {
+    background-color: var(--error);
+}
+
+/* info serveur */
+.table-striped tbody > tr:nth-child(2n + 1) > td,
+.table-striped tbody > tr:nth-child(2n + 1) > th {
+    background-color: var(--dark-transparent);
+}
+
+th {
+    font-weight: normal !important;
+}
+
+/* editeur contenu de la page d'accueil */
+.ck-rounded-corners .ck.ck-editor__main > .ck-editor__editable,
+.ck.ck-editor__main > .ck-editor__editable.ck-rounded-corners {
+    background: transparent;
 }
