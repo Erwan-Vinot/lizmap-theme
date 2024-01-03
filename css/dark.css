@@ -780,10 +780,10 @@ th {
 /* bouton "pleine emprise" - zoom extent button */
 #navbar .btn.zoom-extent {
     transform: scale(80%);
-    background-color: var(--dark-transparent) !important;
-    border: none;
     border-radius: 6px;
     box-shadow: none;
+    filter:brightness(0%);
+    border-color: var(--mid-transparent) !important;
 }
 
 #navbar {
@@ -807,8 +807,8 @@ th {
 /* boite de l'echelle - overview box (scale, pointer coordinates, minimap)*/
 #overview-box {
     top: 1%;
-    border: 1px solid var(--light);
-    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--mid-transparent);
+    background-color: rgba(255,255,255,0.80);
     width: max-content;
     height: fit-content;
     padding-right: 0.4%;
@@ -822,7 +822,7 @@ th {
 }
 
 #overview-box * {
-    color: var(--accent);
+    color: black;
     text-shadow: none;
     font-size: 9pt;
 }
@@ -840,11 +840,11 @@ lizmap-overviewmap .ol-overviewmap {
 }
 
 #overview-bar * {
-    border-color: var(--accent) !important;
+    border-color: black !important;
 }
 
 .ol-scale-step-marker {
-    background-color: var(--accent) !important;
+    background-color: black !important;
 }
 
 .ol-scale-step-marker[style*="top: 3px"] { /* fix première barre mal placée - fix default style error*/
@@ -887,9 +887,101 @@ lizmap-mouse-position > div.coords-unit > select {
 }
 
 lizmap-overviewmap .ol-overviewmap button {
-    background-color: var(--dark-transparent)
+    background-color: transparent;
+    border: solid 1px var(--mid-transparent)
 }
 
 lizmap-overviewmap .ol-overviewmap button span {
     font-size: 12pt !important;
+}
+
+/* -------------------------------------------- map menu ---------------------------------------------- */
+
+/* plus de bouton 'projets' - remove projects button*/
+#button-projects,
+#dock h3 span.title {
+    display: none;
+}
+
+/* plus de fond noir transparent - remove dock dark background*/
+#dock,
+#mapmenu,
+#dock div.menu-content,
+#metadata,
+#mapmenu .nav-list > li > a:hover   {
+    background: none;
+}
+
+/* icones en noir et bordures en gris - recolor icons in black and borders in grey */
+[class^="icon-"], [class*=" icon-"],
+#dock-close,
+#switcher button.btn,
+#tmLayers button.btn,
+#dock .tree button.checkbox,
+#right-dock .tree button.checkbox,
+#bottom-dock .tree button.checkbox,
+#mini-dock .tree button.checkbox,
+#nav-tab-switcher a::before,
+#nav-tab-metadata a::before,
+#nav-tab-edition a::before,
+#nav-tab-filter a::before{
+    filter:brightness(0%);
+    box-shadow: none;
+    border-color: var(--mid-transparent) !important;
+}
+
+/* texte en noir - black text */
+#toolbar h3,
+#menu h3,
+#dock h3,
+#sub-dock h3,
+#mini-dock h3,
+#right-dock h3,
+div.modal h3,
+.dock-subtitle,
+#dock-tabs > li > a,
+#right-dock-tabs > li > a {
+    color: black;
+}
+
+/* bouton fermer dock simplifié - optimize close deck button */
+#dock-close {
+    border: none;
+    transform: translate(0%, 110%);
+}
+
+/* espace pour les actions de couche - add space of layer actions*/
+#switcher-layers-container > div.menu-content {
+    padding-top: 20px;
+}
+
+/* placement des actions de couche - layer actions placement*/
+#switcher-layers-actions {
+    position: absolute;
+    left:10%;
+    z-index: 1;
+}
+
+/* fenetres ajustées et en blanc - white resized windows */
+#dock div.menu-content,ul.nav.nav-tabs,#metadata  {
+    margin-bottom: 1%; 
+    width: fit-content;
+    height: fit-content;
+    border: solid 1px var(--mid-transparent);
+    border-radius: 10px;
+    background: rgba(255,255,255,0.80);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    -moz-backdrop-filter: blur(5px);
+    -ms-backdrop-filter: blur(5px);
+}
+
+/* cacher la barre de scroll des fonds de carte - hide horizontal baseplan scrollbar */
+#dock div.menu-content  {
+    overflow-x: hidden;
+    width: inherit;
+}
+
+.baselayer-select  {
+    border-radius: 5px !important;
 }
