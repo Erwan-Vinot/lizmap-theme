@@ -765,42 +765,131 @@ th {
 
 
 
-/* ---------------------- Carto - "UI" ------------------------ */
+/* -------------------------------------------- Carto - UI ---------------------------------------------- */
 
-/* remove useless stuff */
 #navbar .btn.pan,
 #navbar div.slider,
 #navbar .btn.zoom,
 #navbar .btn.zoom-in,
 #navbar .btn.zoom-out,
 .history {
-    display: none;
+    display: none; /* Cacher choses superflues - hide useless stuff */
 }
 
-/* boutons de navigation */
+
+/* bouton "pleine emprise" - zoom extent button */
+#navbar .btn.zoom-extent {
+    transform: scale(80%);
+    background-color: var(--dark-transparent) !important;
+    border: none;
+    border-radius: 6px;
+    box-shadow: none;
+}
+
 #navbar {
-    top: -2.6%;
+    top: -3.1%;
     right: 0.5%;
 }
 
-#navbar .btn.zoom-extent {
-    transform: scale(80%);
-    background-color: var(--darkest-transparent) !important;
-    border: none;
-    border-radius: 6px;
-}
-
-#navbar .btn.zoom-extent:focus {
-    background-color: var(--mid);
-    border: none;
-}
-
-/* logo */
+/* logo en noir transparent sans le fond - make logo black and transparent + remove background */
 #attribution-box {
     background: transparent;
 }
 
 #attribution-box img {
-    padding-bottom: 3%;
+    padding-bottom: 1%;
     filter: brightness(0%) opacity(50%);
+}
+
+
+/* -------------------------------------------- Carto - ECHELLE et minimap ---------------------------------------------- */
+
+/* boite de l'echelle - overview box (scale, pointer coordinates, minimap)*/
+#overview-box {
+    top: 1%;
+    border: 1px solid var(--light);
+    background-color: rgba(0, 0, 0, 0.5);
+    width: max-content;
+    height: fit-content;
+    padding-right: 0.4%;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+    border-radius: 6px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    -moz-backdrop-filter: blur(5px);
+    -ms-backdrop-filter: blur(5px);
+}
+
+#overview-box * {
+    color: var(--accent);
+    text-shadow: none;
+    font-size: 9pt;
+}
+
+#overview-box > * + *,
+lizmap-overviewmap .ol-overviewmap {
+    border-top: none;
+    background: none;
+}
+
+/* Barre d'échelle - scale bar */
+#overview-bar {
+    margin-bottom: 3%;
+    left: 5%;
+}
+
+#overview-bar * {
+    border-color: var(--accent) !important;
+}
+
+.ol-scale-step-marker {
+    background-color: var(--accent) !important;
+}
+
+.ol-scale-step-marker[style*="top: 3px"] { /* fix première barre mal placée - fix default style error*/
+    top: -8px !important;
+}
+
+/* Coordonnées du pointeur - pointer coordinates */
+.mouse-position .btn-mini {
+    display: none;
+}
+
+lizmap-mouse-position > div.mouse-position {
+    justify-content: center;
+}
+
+lizmap-mouse-position * {
+    background: none !important;
+}
+
+lizmap-mouse-position > div.coords-unit > select {
+    height: 97%;
+}
+
+.editable-position input {
+    margin-left: 7px;
+}
+
+/* Minimap et bouton minimap - minimap and its button */
+.ol-overviewmap-map {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    transform: translate(-112%, 2%);
+    border-radius: 10px  !important;
+    overflow: hidden !important;
+}
+
+.ol-control button {
+    transform: translate(-1210%, 120%) !important;
+}
+
+lizmap-overviewmap .ol-overviewmap button {
+    background-color: var(--dark-transparent)
+}
+
+lizmap-overviewmap .ol-overviewmap button span {
+    font-size: 12pt !important;
 }
