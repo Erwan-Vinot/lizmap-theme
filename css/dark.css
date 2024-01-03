@@ -32,8 +32,8 @@ Commented for CSS beginners in french and english
 Palette : https://coolors.co/691e27-0e0d1e-202341-474c79-6d75b1-a2a6c4-d6d6d6-ffffff
 
 base gradient 1 : https://www.joshwcomeau.com/gradient-generator?colors=0e0d1e|202341|6d75b1|202341|0e0d1e&angle=140&colorMode=hsl&precision=20&easingCurve=0.709051724137931|0.5905172413793104|0.0021551724137931034|0.39655172413793105
-              2 : https://www.joshwcomeau.com/gradient-generator?colors=0e0d1e|202341|6d75b1|202341|0e0d1e&angle=140&colorMode=hsl&precision=20&easingCurve=0.709051724137931|0.5905172413793104|0.30387931034482757|0.4482758620689655 
-              3 : https://www.joshwcomeau.com/gradient-generator?colors=0e0d1e|202341|6d75b1|202341|0e0d1e&angle=140&colorMode=hsl&precision=20&easingCurve=0.3728448275862069|0.05603448275862069|-0.05|0.33189655172413796
+            2 : https://www.joshwcomeau.com/gradient-generator?colors=0e0d1e|202341|6d75b1|202341|0e0d1e&angle=140&colorMode=hsl&precision=20&easingCurve=0.709051724137931|0.5905172413793104|0.30387931034482757|0.4482758620689655 
+            3 : https://www.joshwcomeau.com/gradient-generator?colors=0e0d1e|202341|6d75b1|202341|0e0d1e&angle=140&colorMode=hsl&precision=20&easingCurve=0.3728448275862069|0.05603448275862069|-0.05|0.33189655172413796
 
 ------------------------------------------------------------------------------------------------*/
 
@@ -200,13 +200,14 @@ body::after {
 /* ---------------------- Web client - Home - Contenu de la page d'acceuil / landing page content ------------------------ */
 
 #landingPageContent h2 {
-    font-size: 40pt;
+    font-size: 38pt;
     line-height: 80pt;
     letter-spacing:-2pt;
+
+    /* dégradé vertical blanc-gris sur le texte - white-grey gradient on text*/
     background: -webkit-linear-gradient(var(--accent),var(--greyed));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-
 }
 
 #landingPageContent p {
@@ -253,7 +254,7 @@ body::after {
     border-radius: 10px;
     height: 200px;
     width: 200px;
-    -webkit-filter: drop-shadow(0 0 15px var(--darkest-transparent)); 
+    -webkit-filter: drop-shadow(0 10px 15px var(--darkest-transparent) ); 
 }
 
 .thumbnail { /* boites projet - projects box */
@@ -262,7 +263,7 @@ body::after {
     border: 1px solid var(--dark); 
     border-radius: 4%; /* coins arrondis - round corners  */
     padding: 5%;       /* petite marge intérieure - small inside margin */
-    box-shadow: 0px 4px 24px 1px var(--darkest-transparent); /* ombre - shadow */
+    box-shadow: 0px 10px 15px var(--darkest-transparent); /* ombre - shadow */
     background: 
         linear-gradient(/* dégradé en bordure haute - upper rim light gradient */
             180deg,
@@ -285,26 +286,31 @@ body::after {
 
 /* passage de la souris sur un projet - hover on project */
 .thumbnail:hover {
-    transform: scalex(1.02) scaley(1.06) rotateX(-15deg);  /* effet d'agrandissement - pop-out effect */
+    transform: scalex(1.02) scaley(1.06) rotateX(-15deg);  /* effet d'agrandissement    - pop-out effect */
     box-shadow: 
-                0 -5px 20px var(--light-transparent),      /* lueur interne - inner glow */
-                inset 0px 3px 4px var(--light),            /* lueur interne en bordure - rim light inner glow */
-                inset 0px 20px 30px var(--mid);            /* ombre moins sombre - lighter shadow*/
-
-    transition: transform 0.2s ease,
-                box-shadow 0.0s; /* durée des transitions d'entrée de hover des effets - transition duration on hover*/
+        0 -5px 100px var(--light-transparent),             /* lueur externe             - outer glow*/
+        inset 0px 3px 4px var(--light),                    /* lueur interne en bordure  - rim light inner glow */
+        inset 0px 20px 30px var(--mid)                     /* lueur interne             - inner glow */
+    ;            
+    /* durée des transitions d'entrée de hover des effets - transition duration on hover*/
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.0s 
+    ;
 }
 
+/* durée des transitions en sortie de hover des effets - transition duration off over */
 .thumbnail:not(:hover){
-    transition: transform 0.1s ease,
-                box-shadow 2s ease; /* durée des transitions en sortie de hover des effets - transition duration off over */
+    transition:
+        transform 0.1s ease,
+        box-shadow 2s ease 
+    ;
 }
 
 
 /* ------------------------------------------ Web client - Home - Animations -------------------------------------------- */
 
 /* ---------------------- Animation landing page ------------------------ */
-
 #landingPageContent {
     -webkit-animation-name: fadeInDown;
     animation-name: fadeInDown;
@@ -381,7 +387,6 @@ body::after {
 }
 
 /* ---------------------- Animation projects ------------------------ */
-
 .liz-repository-title {
     -webkit-animation-name: fadeInLeft;
     animation-name: fadeInLeft;
@@ -509,7 +514,8 @@ a:active .icon {
         brightness(50%)     /* on la rend grise                  - turn it grey */
         sepia(1)            /* on la rend sepia                  - turn it sepia */
         hue-rotate(200deg)  /* on la rend mauve                  - turn it lilac */
-        saturate(150%);     /* on la rend violette               - turn it purple */
+        saturate(150%)      /* on la rend violette               - turn it purple */
+    ;
 }
 
 /* sur passage de la souris sur les boutons du header - hover on header buttons */
@@ -590,4 +596,72 @@ a:active .icon {
 .alert .close {
     color: var(--accent);
     opacity: 0.7;
+}
+
+
+/* ---------------------- Web client - Administration - Auth ------------------------ */
+
+fieldset {
+    border-color: var(--mid);
+    border-radius: 5px;
+}
+
+#auth_login_zone {
+    height: 80vh; /* pour régler le fond - fix bg */
+}
+
+/* fond en dessous du bouton "vous connecter" - bg under login button */
+.form-actions {
+    background-color: transparent;
+    border-color: var(--mid) ; 
+}
+
+
+/* même effet que .thumbnail des projets - same effect as thumbnails */
+.jforms-ctrl-secret, .jforms-ctrl-input, .btn {
+    color:var(--accent);
+    text-shadow: none;
+    font: inherit;
+    background-color: transparent !important;
+    border-color: var(--light) !important; 
+    border-radius: 5px; 
+    box-shadow: 0px 10px 15px var(--darkest-transparent);
+    background: 
+        linear-gradient(
+            180deg,
+            var(--light-transparent) 0%,
+            transparent 1%
+        ),
+        linear-gradient(
+            0deg,
+            transparent 0%,
+            var(--mid-transparent) 80% 
+        )
+    ;
+}
+
+.jforms-ctrl-secret:hover, .jforms-ctrl-input:hover, .btn:hover {
+    color:var(--accent);
+    text-shadow: none;
+    transform: scalex(1.02) scaley(1.06) rotateX(-15deg);  
+    box-shadow: 
+        0 -5px 20px var(--light-transparent),      
+        inset 0px 3px 4px var(--light),            
+        inset 0px 20px 30px var(--mid);            
+    transition: 
+        transform 0.2s ease,
+        box-shadow 0.0s 
+    ; 
+}
+
+.jforms-ctrl-secret:not(:hover), .jforms-ctrl-input:not(:hover), .btn:not(:hover){
+    transition: 
+        transform 0.1s ease,
+        box-shadow 2s ease 
+    ; 
+}
+
+.jforms-ctrl-secret:focus, .jforms-ctrl-input:focus, .btn:focus{
+    color:var(--accent);
+    text-shadow: none;
 }
