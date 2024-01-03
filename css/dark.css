@@ -22,7 +22,7 @@ SOFTWARE.
 
 
 
----------------------------------------------- info ----------------------------------------------
+---------------------------------------------- I N F O ----------------------------------------------
 
 WIP Pure CSS theme for https://www.geo70.fr/index.php/view/ Site powered by LizMap.
 Cannot edit JS or HTML, and can only make one CSS file.
@@ -35,10 +35,9 @@ base gradient 1 : https://www.joshwcomeau.com/gradient-generator?colors=0e0d1e|2
               2 : https://www.joshwcomeau.com/gradient-generator?colors=0e0d1e|202341|6d75b1|202341|0e0d1e&angle=140&colorMode=hsl&precision=20&easingCurve=0.709051724137931|0.5905172413793104|0.30387931034482757|0.4482758620689655 
               3 : https://www.joshwcomeau.com/gradient-generator?colors=0e0d1e|202341|6d75b1|202341|0e0d1e&angle=140&colorMode=hsl&precision=20&easingCurve=0.3728448275862069|0.05603448275862069|-0.05|0.33189655172413796
 
-You can get my code from here but make sure you give credit!
-https://github.com/Erwan-Vinot/lizmap-theme 
+You can get my code from here but make sure you give credit! https://github.com/Erwan-Vinot/lizmap-theme 
 
-------------------------------------------------------------------------------------------------*/
+---------------------------------------------------------------------------------------------------*/
 
 
 
@@ -147,6 +146,11 @@ https://github.com/Erwan-Vinot/lizmap-theme
         hsla(244deg, 40%, 8%, 0) 100%
     );
 }
+
+
+  /* --------------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------  W E B   C L I E N T ------------------------------------------------------------- */
+  /* --------------------------------------------------------------------------------------------------------------------------- */
 
 
 /* ---------------------- Web client - Home - corps du site et fond / body and background ------------------------ */
@@ -688,9 +692,9 @@ fieldset {
     text-shadow: none;
 }
 
-/* le navigateur à gauche */
+/* le navigateur à gauche - nav table on the left */
 .well {
-    position: fixed; /* toujours visible à l'écran même si on scroll */
+    position: fixed; /* toujours visible à l'écran même si on scroll - stick the nav on the screen */
     left: 2%;
     top: 10%;
     background: none;
@@ -698,7 +702,7 @@ fieldset {
 }
 
 .well a,
-.well li{ /*liens */
+.well li{ /*liens - links */
     color:var(--accent) !important;
     font-weight: normal !important;
     text-shadow: none !important;
@@ -714,7 +718,7 @@ fieldset {
     font-weight: bold !important;
 }
 
-/* sous titres moins gros fix certaines pages avec scroll inutile (logs et projets)*/
+/* sous titres moins gros fix certaines pages avec scroll inutile (logs et projets) - smaller sub titles*/
 .container-fluid h2 {
     font-size: 15pt;
     line-height: 13pt;
@@ -748,8 +752,55 @@ th {
     font-weight: normal !important;
 }
 
-/* editeur contenu de la page d'accueil */
+/* editeur contenu de la page d'accueil - landing page editor*/
 .ck-rounded-corners .ck.ck-editor__main > .ck-editor__editable,
 .ck.ck-editor__main > .ck-editor__editable.ck-rounded-corners {
     background: transparent;
+}
+
+
+  /* --------------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------         M A P        ------------------------------------------------------------- */
+  /* --------------------------------------------------------------------------------------------------------------------------- */
+
+
+
+/* ---------------------- Carto - "UI" ------------------------ */
+
+/* remove useless stuff */
+#navbar .btn.pan,
+#navbar div.slider,
+#navbar .btn.zoom,
+#navbar .btn.zoom-in,
+#navbar .btn.zoom-out,
+.history {
+    display: none;
+}
+
+/* boutons de navigation */
+#navbar {
+    top: -2.6%;
+    right: 0.5%;
+}
+
+#navbar .btn.zoom-extent {
+    transform: scale(80%);
+    background-color: var(--darkest-transparent) !important;
+    border: none;
+    border-radius: 6px;
+}
+
+#navbar .btn.zoom-extent:focus {
+    background-color: var(--mid);
+    border: none;
+}
+
+/* logo */
+#attribution-box {
+    background: transparent;
+}
+
+#attribution-box img {
+    padding-bottom: 3%;
+    filter: brightness(0%) opacity(50%);
 }
