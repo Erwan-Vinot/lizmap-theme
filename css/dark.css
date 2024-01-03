@@ -197,6 +197,24 @@ body::after {
 }
 
 
+/* ---------------------- Web client - Home - Contenu de la page d'acceuil / landing page content ------------------------ */
+
+#landingPageContent h2 {
+    font-size: 40pt;
+    line-height: 80pt;
+    letter-spacing:-2pt;
+    background: -webkit-linear-gradient(var(--accent),var(--greyed));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+#landingPageContent p {
+    font-size: 13pt;
+    color: var(--greyed);
+}
+
+
 /* ----------------------------------- Web client - Home - Projets / Projects ------------------------------------- */
 
 .liz-project-desc,
@@ -212,7 +230,7 @@ body::after {
 
 /* ajustement style texte titre groupe de projet - change repo title text style*/
 .liz-repository-title { 
-    padding-top: 3%;
+    padding-top: 5%;
     padding-left: 3%;
     font-size: 19pt;
 }
