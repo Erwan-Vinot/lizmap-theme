@@ -24,13 +24,16 @@ SOFTWARE.
 
 ---------------------------------------------- info ----------------------------------------------
 
-WIP Pure CSS theme for https://www.geo70.fr/index.php/view/ 
-Site powered by LizMap.
-Cannot edit JS or HTML.
+WIP Pure CSS theme for https://www.geo70.fr/index.php/view/ Site powered by LizMap.
+Cannot edit JS or HTML, and can only make one CSS file.
 
 Commented for CSS beginners in french and english
 
 Palette : https://coolors.co/691e27-0e0d1e-202341-474c79-6d75b1-a2a6c4-d6d6d6-ffffff
+
+base gradient 1 : https://www.joshwcomeau.com/gradient-generator?colors=0e0d1e|202341|6d75b1|202341|0e0d1e&angle=140&colorMode=hsl&precision=20&easingCurve=0.709051724137931|0.5905172413793104|0.0021551724137931034|0.39655172413793105
+              2 : https://www.joshwcomeau.com/gradient-generator?colors=0e0d1e|202341|6d75b1|202341|0e0d1e&angle=140&colorMode=hsl&precision=20&easingCurve=0.709051724137931|0.5905172413793104|0.30387931034482757|0.4482758620689655 
+              3 : https://www.joshwcomeau.com/gradient-generator?colors=0e0d1e|202341|6d75b1|202341|0e0d1e&angle=140&colorMode=hsl&precision=20&easingCurve=0.3728448275862069|0.05603448275862069|-0.05|0.33189655172413796
 
 ------------------------------------------------------------------------------------------------*/
 
@@ -233,16 +236,17 @@ body::after {
     border-radius: 4%; /* coins arrondis - round corners  */
     padding: 5%;       /* petite marge intérieure - small inside margin */
     box-shadow: 0px 4px 24px 1px var(--darkest-transparent); /* ombre - shadow */
-    background: linear-gradient(/* dégradé intérieur gauche-droite - gradient left-right */
-                    183deg,
-                    var(--dark-transparent) 0%,
-                    var(--darkest-transparent) 66%
-                ),
-                linear-gradient(/* dégradé intérieur haut-bas - gradient up-down */
-                    331deg,
-                    var(--darkest-transparent) 0%,
-                    var(--mid-transparent) 94% 
-                )
+    background: 
+        linear-gradient(/* dégradé en bordure haute - upper rim light gradient */
+            180deg,
+            var(--light-transparent) 0%,
+            transparent 1%
+        ),
+        linear-gradient(/* dégradé intérieur haut-bas - gradient up-down */
+            0deg,
+            transparent 0%,
+            var(--mid-transparent) 80% 
+        )
     ;
     background-blend-mode: screen, screen;
 
@@ -254,13 +258,19 @@ body::after {
 
 /* passage de la souris sur un projet - hover on project */
 .thumbnail:hover {
-    transform: scale(1.06) rotateX(-10deg); /* effet d'agrandissement - pop-out effect */
-    box-shadow: 0 0px 15px var(--mid),
-                inset 0 0 30px var(--light),
-                inset 0 0 70px var(--mid); /* ombre moins sombre et lueur interne - lighter shadow and inner glow */
+    transform: scalex(1.02) scaley(1.06) rotateX(-15deg);  /* effet d'agrandissement - pop-out effect */
+    box-shadow: 
+                0 -5px 20px var(--light-transparent),      /* lueur interne - inner glow */
+                inset 0px 3px 4px var(--light),            /* lueur interne en bordure - rim light inner glow */
+                inset 0px 20px 30px var(--mid);            /* ombre moins sombre - lighter shadow*/
 
     transition: transform 0.2s ease,
-                box-shadow 1s ease; /* durée des transitions d'entrée des effets - transition duration */
+                box-shadow 0.0s; /* durée des transitions d'entrée de hover des effets - transition duration on hover*/
+}
+
+.thumbnail:not(:hover){
+    transition: transform 0.1s ease,
+                box-shadow 2s ease; /* durée des transitions en sortie de hover des effets - transition duration off over */
 }
 
 
@@ -318,12 +328,13 @@ body::after {
 /* note : des fois les icones ne sont pas totalement noires, ou la translation a 1px d'erreur */
 a:hover .icon,
 a:active .icon {
-    filter: brightness(0%)      /* on s'assure que l'image est noire - turn the icon pure black */
-            invert()            /* on la rend blanche                - turn it white */
-            brightness(50%)     /* on la rend grise                  - turn it grey */
-            sepia(1)            /* on la rend sepia                  - turn it sepia */
-            hue-rotate(200deg)  /* on la rend mauve                  - turn it lilac */
-            saturate(150%);     /* on la rend violette               - turn it purple */
+    filter: 
+        brightness(0%)      /* on s'assure que l'image est noire - turn the icon pure black */
+        invert()            /* on la rend blanche                - turn it white */
+        brightness(50%)     /* on la rend grise                  - turn it grey */
+        sepia(1)            /* on la rend sepia                  - turn it sepia */
+        hue-rotate(200deg)  /* on la rend mauve                  - turn it lilac */
+        saturate(150%);     /* on la rend violette               - turn it purple */
 }
 
 /* sur passage de la souris sur les boutons du header - hover on header buttons */
