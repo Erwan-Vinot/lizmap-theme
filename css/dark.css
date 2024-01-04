@@ -37,9 +37,20 @@ base gradient 1 : https://www.joshwcomeau.com/gradient-generator?colors=0e0d1e|2
 
 You can get my code from here but make sure you give credit! https://github.com/Erwan-Vinot/lizmap-theme 
 
----------------------------------------------------------------------------------------------------*/
+---------------------------------------------------------------------------------------------------
+
+---------------------------------------------- I M P O R T A N T ----------------------------------------------
+
+Ce thème a été fait avec les options de l'extention QGIS LizMap suivantes:
+    - "Masquer le bandeau du haut"
+    - "Zone d'affichage des popup" > Dock
 
 
+This theme was made with these LizMap QGIS extension settings in mind:
+    - "Hide header"
+    - "Popup display" > Dock
+
+*/
 
 /* -------------------------- Variables et Couleurs / Variables and colors ----------------------------- */
 
@@ -517,7 +528,9 @@ body::after {
 /* les icones blanches de LizMap deviennent noires en hover via une translation de quelques pixels pour décaler l'image et atteindre l'icone sombre */
 /* note : des fois les icones ne sont pas totalement noires, ou la translation a 1px d'erreur */
 a:hover .icon,
-a:active .icon {
+a:active .icon,
+#button-selectiontool:hover,
+#button-atlas:hover{
     filter: 
         brightness(0%)      /* on s'assure que l'image est noire - turn the icon pure black */
         invert()            /* on la rend blanche                - turn it white */
@@ -634,7 +647,10 @@ fieldset {
 .container-fluid input,
 .jforms-ctrl-secret,
 .jforms-ctrl-input,
-.btn {
+.row-fluid .btn, /* boutons admin */
+.row-fluid textarea, /* log admin */
+.form-actions .btn /* connexion */
+{
     color:var(--accent) !important;
     font-weight: normal !important;
     text-shadow: none;
@@ -657,10 +673,13 @@ fieldset {
     ;
 }
 
+
 .container-fluid input:hover,
 .jforms-ctrl-secret:hover,
 .jforms-ctrl-input:hover,
-.btn:hover {
+.row-fluid .btn:hover, /* boutons admin */
+.row-fluid textarea:hover, /* log admin */
+.form-actions .btn:hover{
     color:var(--accent);
     text-shadow: none;
     transform: scalex(1.02) scaley(1.06) rotateX(-15deg);  
@@ -677,7 +696,9 @@ fieldset {
 .container-fluid input:not(:hover),
 .jforms-ctrl-secret:not(:hover),
 .jforms-ctrl-input:not(:hover),
-.btn:not(:hover){
+.row-fluid .btn:not(:hover), /* boutons admin */
+.row-fluid textarea:not(:hover), /* log admin */
+.form-actions .btn:not(:hover){
     transition: 
         transform 0.1s ease,
         box-shadow 2s ease 
@@ -687,7 +708,9 @@ fieldset {
 .container-fluid input:focus,
 .jforms-ctrl-secret:focus,
 .jforms-ctrl-input:focus,
-.btn:focus{
+.row-fluid .btn:focus, /* boutons admin */
+.row-fluid textarea:focus, /* log admin */
+.form-actions .btn:focus{
     color:var(--accent);
     text-shadow: none;
 }
@@ -733,6 +756,9 @@ legend {
     border:none;
 }
 
+.modal-body {
+    color: black; /* fix légende du tableau */
+}
 .container-fluid a {
     font-weight: bold;
     color:var(--light);
@@ -782,6 +808,7 @@ th {
     transform: scale(80%);
     border-radius: 6px;
     box-shadow: none;
+    background-color: transparent;
     filter:brightness(0%);
     border-color: var(--mid-transparent) !important;
 }
@@ -807,22 +834,14 @@ th {
 /* boite de l'echelle - overview box (scale, pointer coordinates, minimap)*/
 #overview-box {
     top: 1%;
-    border: 1px solid var(--mid-transparent);
-    background-color: rgba(255,255,255,0.80);
-    width: max-content;
-    height: fit-content;
     padding-right: 0.4%;
     padding-top: 0.5%;
     padding-bottom: 0.5%;
     border-radius: 6px;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    -moz-backdrop-filter: blur(5px);
-    -ms-backdrop-filter: blur(5px);
 }
 
 #overview-box * {
-    color: black;
+    font-family: inherit;
     text-shadow: none;
     font-size: 9pt;
 }
@@ -837,14 +856,6 @@ lizmap-overviewmap .ol-overviewmap {
 #overview-bar {
     margin-bottom: 3%;
     left: 5%;
-}
-
-#overview-bar * {
-    border-color: black !important;
-}
-
-.ol-scale-step-marker {
-    background-color: black !important;
 }
 
 .ol-scale-step-marker[style*="top: 3px"] { /* fix première barre mal placée - fix default style error*/
@@ -895,12 +906,18 @@ lizmap-overviewmap .ol-overviewmap button span {
     font-size: 12pt !important;
 }
 
-/* -------------------------------------------- map menu ---------------------------------------------- */
+/* -------------------------------------------- Carto - map menu ---------------------------------------------- */
 
-/* plus de bouton 'projets' - remove projects button*/
+/* plus de bouton 'projets' et 'popup' - remove projects and popup buttons*/
 #button-projects,
+#button-popupcontent,
 #dock h3 span.title {
     display: none;
+}
+
+/* boutons noirs en blanc - fix black buttons */
+#button-selectiontool, #button-atlas {
+    filter:invert();
 }
 
 /* plus de fond noir transparent - remove dock dark background*/
@@ -908,13 +925,15 @@ lizmap-overviewmap .ol-overviewmap button span {
 #mapmenu,
 #dock div.menu-content,
 #metadata,
-#mapmenu .nav-list > li > a:hover   {
+#mapmenu .nav-list > li > a:hover,
+#bottom-dock.visible{
     background: none;
 }
 
 /* icones en noir et bordures en gris - recolor icons in black and borders in grey */
 [class^="icon-"], [class*=" icon-"],
 #dock-close,
+#mini-dock .icon,
 #switcher button.btn,
 #tmLayers button.btn,
 #dock .tree button.checkbox,
@@ -925,9 +944,35 @@ lizmap-overviewmap .ol-overviewmap button span {
 #nav-tab-metadata a::before,
 #nav-tab-edition a::before,
 #nav-tab-filter a::before{
+    background-color: transparent !important;
     filter:brightness(0%);
     box-shadow: none;
     border-color: var(--mid-transparent) !important;
+}
+
+/* fenetres ajustées et en blanc - white resized windows */
+#dock div.menu-content,
+ul.nav.nav-tabs,
+#metadata,
+#attribute-summary.attribute-content.bottom-content,
+.sub-metadata .menu-content,
+#mini-dock,
+.alert.alert-block.alert-info.fade.in.print,
+.alert.alert-block.alert-error.fade.in,
+#right-dock,
+#mini-dock,
+#overview-box,
+.alert{
+    margin-bottom: 1%; 
+    width: fit-content !important;
+    height: fit-content !important;
+    border: solid 1px var(--mid-transparent);
+    border-radius: 10px;
+    background: rgba(255,255,255,0.80);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    -moz-backdrop-filter: blur(5px);
+    -ms-backdrop-filter: blur(5px);
 }
 
 /* texte en noir - black text */
@@ -935,19 +980,37 @@ lizmap-overviewmap .ol-overviewmap button span {
 #menu h3,
 #dock h3,
 #sub-dock h3,
-#mini-dock h3,
+#mini-dock,
 #right-dock h3,
 div.modal h3,
 .dock-subtitle,
 #dock-tabs > li > a,
-#right-dock-tabs > li > a {
-    color: black;
+#right-dock-tabs > li > a,
+#bottom-dock *,
+#filter-content div.menu-content,
+#timemanager-menu,
+.btn-mini,
+.dl-vertical .icon-zoom-in,
+#mini-dock h3 span.title,
+#print-launch, 
+#timemanager button,
+#atlas button,
+#bottom-dock button,
+#sub-dock,
+#overview-box *,
+#dock div.menu-content,
+.alert,
+#popupcontent .lizmapPopupContent h4{
+    color: black !important;
 }
+
+
+/* -------------------------------------------- Carto - outils - tools ---------------------------------------------- */
 
 /* bouton fermer dock simplifié - optimize close deck button */
 #dock-close {
     border: none;
-    transform: translate(0%, 110%);
+    transform: translate(0%, 130%);
 }
 
 /* espace pour les actions de couche - add space of layer actions*/
@@ -962,20 +1025,6 @@ div.modal h3,
     z-index: 1;
 }
 
-/* fenetres ajustées et en blanc - white resized windows */
-#dock div.menu-content,ul.nav.nav-tabs,#metadata  {
-    margin-bottom: 1%; 
-    width: fit-content;
-    height: fit-content;
-    border: solid 1px var(--mid-transparent);
-    border-radius: 10px;
-    background: rgba(255,255,255,0.80);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    -moz-backdrop-filter: blur(5px);
-    -ms-backdrop-filter: blur(5px);
-}
-
 /* cacher la barre de scroll des fonds de carte - hide horizontal baseplan scrollbar */
 #dock div.menu-content  {
     overflow-x: hidden;
@@ -986,8 +1035,7 @@ div.modal h3,
     border-radius: 5px !important;
 }
 
-
-/* -------------------------------------------- info couche popup (quand on clique sur une couche depuis la légende) - layer info popup ---------------------------------------------- */
+/* ------ info couche popup (quand on clique sur une couche depuis la légende) - layer info popup------ */
 
 /* plus de fond noir transparent + placement - hide black transparent background and placement */
 #sub-dock {
@@ -1002,23 +1050,12 @@ div.modal h3,
 
 /* on applique le style du mapmenu - apply mapmenu style */
 .sub-metadata .menu-content {
-    width: fit-content;
-    height: fit-content;
-    color: black;
-    border: solid 1px var(--mid-transparent);
-    border-radius: 10px;
-    background: rgba(255,255,255,0.80);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    -moz-backdrop-filter: blur(5px);
-    -ms-backdrop-filter: blur(5px);
-    padding-top: 0px  !important;
+    padding-top: 0  !important;
     padding-bottom: 0 !important;
 }
 
 /* boutons plus simples - simpler buttons */
 .btn-mini,.dl-vertical .icon-zoom-in {
-    color: black!important;
     box-shadow: none;
     border-color: var(--mid-transparent) !important;     
 }
@@ -1030,4 +1067,95 @@ div.modal h3,
     display: flex;
     top: 2%;
     right: 5%;
+}
+
+/* fix info img */
+#metadata img {
+    height: 100px;
+    width: 100px;
+    box-shadow: none;
+    -webkit-filter:none;
+}
+
+/* fenêtre outil - tool window */
+#mini-dock {
+    top:14px;
+    right: 462px;
+}
+
+/* titre outil - tool title */
+#mini-dock h3 span.title {
+    font-weight: bold;
+    background: rgba(255,255,255,0.80);
+}
+
+/* message et résultat mesure - measure tool alert and result */
+#lizmap-measure-message,
+.alert.alert-block.alert-info.fade.in.print,
+.alert.alert-block.alert-error.fade.in{
+    top:50px;
+    right: 600px;
+}
+
+/* ajustements outil permalien - fix permalink */
+.nav-tabs>li>a:hover, .nav-tabs>li>a:focus {
+    background: none !important;
+}
+
+input.btn-geobookmark-add.btn.btn-mini {
+    background: none;
+}
+
+/* ajustements giga marge atlas - fix huge atlas margin */
+#content.right-dock-visible #map-content {
+    margin-right: 0% !important;
+}
+
+/* ajustements atlas, aspect minidock sous l'échelle - fix atlas, minidock aspect placed under scalebar */
+#right-dock {
+    z-index: 10000;
+    top:120px;
+    right: 10px;
+    padding-top: 0  !important;
+    padding-bottom: 0 !important;
+}
+
+/* ajustements boutons filtrer - fix filter buttons */
+#filter-content div.menu-content {
+    padding-right: 30px;
+}
+
+#filter-content > div button {
+    background: none;
+}
+
+#liz-filter-item-layer-total-count {
+    margin-left: 10px
+}
+
+/* ajustements boutons - fix buttons */
+#print-launch, 
+#timemanager button,
+#atlas button,
+#bottom-dock button {
+    background: none;
+    box-shadow: none;
+    border-color: var(--mid-transparent) !important;
+}
+
+/* ajustements data view - fix data view*/
+#attributeLayers .tab-content .attribute-content,
+.btn-bottomdock-clear,
+.btn-bottomdock-size {
+    border: solid 1px var(--mid-transparent);
+    border-radius: 10px;
+    background: rgba(255,255,255,0.80) !important;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    -moz-backdrop-filter: blur(5px);
+    -ms-backdrop-filter: blur(5px);
+}
+
+.lizmapPopupDiv{
+    background: none !important;
 }
