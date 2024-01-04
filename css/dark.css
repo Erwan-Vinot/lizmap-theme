@@ -985,3 +985,49 @@ div.modal h3,
 .baselayer-select  {
     border-radius: 5px !important;
 }
+
+
+/* -------------------------------------------- info couche popup (quand on clique sur une couche depuis la légende) - layer info popup ---------------------------------------------- */
+
+/* plus de fond noir transparent + placement - hide black transparent background and placement */
+#sub-dock {
+    background: none;
+    transform: translate(0%, 40px);
+}
+
+.sub-metadata .title, .sub-metadata h3 {
+    display: none !important; /* plus de titre - remove title */
+    border: none;
+}
+
+/* on applique le style du mapmenu - apply mapmenu style */
+.sub-metadata .menu-content {
+    width: fit-content;
+    height: fit-content;
+    color: black;
+    border: solid 1px var(--mid-transparent);
+    border-radius: 10px;
+    background: rgba(255,255,255,0.80);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    -moz-backdrop-filter: blur(5px);
+    -ms-backdrop-filter: blur(5px);
+    padding-top: 0px  !important;
+    padding-bottom: 0 !important;
+}
+
+/* boutons plus simples - simpler buttons */
+.btn-mini,.dl-vertical .icon-zoom-in {
+    color: black!important;
+    box-shadow: none;
+    border-color: var(--mid-transparent) !important;     
+}
+
+/* bouton fermer - close button */
+#hide-sub-dock {
+    background: none;
+    position: absolute;
+    display: flex;
+    top: 2%;
+    right: 5%;
+}
