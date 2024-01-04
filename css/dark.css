@@ -39,6 +39,8 @@ You can get my code from here but make sure you give credit! https://github.com/
 
 ---------------------------------------------------------------------------------------------------
 
+
+
 ---------------------------------------------- I M P O R T A N T ----------------------------------------------
 
 Ce thème a été fait avec les options de l'extention QGIS LizMap suivantes:
@@ -51,6 +53,9 @@ This theme was made with these LizMap QGIS extension settings in mind:
     - "Popup display" > Dock
 
 */
+
+
+
 
 /* -------------------------- Variables et Couleurs / Variables and colors ----------------------------- */
 
@@ -318,7 +323,7 @@ body::after {
 }
 
 /* durée des transitions en sortie de hover des effets - transition duration off over */
-.thumbnail:not(:hover){
+.thumbnail:not(:hover) {
     transition:
         transform 0.1s ease,
         box-shadow 2s ease 
@@ -530,7 +535,7 @@ body::after {
 a:hover .icon,
 a:active .icon,
 #button-selectiontool:hover,
-#button-atlas:hover{
+#button-atlas:hover {
     filter: 
         brightness(0%)      /* on s'assure que l'image est noire - turn the icon pure black */
         invert()            /* on la rend blanche                - turn it white */
@@ -649,8 +654,7 @@ fieldset {
 .jforms-ctrl-input,
 .row-fluid .btn, /* boutons admin */
 .row-fluid textarea, /* log admin */
-.form-actions .btn /* connexion */
-{
+.form-actions .btn { /* connexion */
     color:var(--accent) !important;
     font-weight: normal !important;
     text-shadow: none;
@@ -679,7 +683,7 @@ fieldset {
 .jforms-ctrl-input:hover,
 .row-fluid .btn:hover, /* boutons admin */
 .row-fluid textarea:hover, /* log admin */
-.form-actions .btn:hover{
+.form-actions .btn:hover {
     color:var(--accent);
     text-shadow: none;
     transform: scalex(1.02) scaley(1.06) rotateX(-15deg);  
@@ -698,7 +702,7 @@ fieldset {
 .jforms-ctrl-input:not(:hover),
 .row-fluid .btn:not(:hover), /* boutons admin */
 .row-fluid textarea:not(:hover), /* log admin */
-.form-actions .btn:not(:hover){
+.form-actions .btn:not(:hover) {
     transition: 
         transform 0.1s ease,
         box-shadow 2s ease 
@@ -710,7 +714,7 @@ fieldset {
 .jforms-ctrl-input:focus,
 .row-fluid .btn:focus, /* boutons admin */
 .row-fluid textarea:focus, /* log admin */
-.form-actions .btn:focus{
+.form-actions .btn:focus {
     color:var(--accent);
     text-shadow: none;
 }
@@ -725,7 +729,7 @@ fieldset {
 }
 
 .well a,
-.well li{ /*liens - links */
+.well li { /*liens - links */
     color:var(--accent) !important;
     font-weight: normal !important;
     text-shadow: none !important;
@@ -801,7 +805,6 @@ th {
 .history {
     display: none; /* Cacher choses superflues - hide useless stuff */
 }
-
 
 /* bouton "pleine emprise" - zoom extent button */
 #navbar .btn.zoom-extent {
@@ -926,12 +929,13 @@ lizmap-overviewmap .ol-overviewmap button span {
 #dock div.menu-content,
 #metadata,
 #mapmenu .nav-list > li > a:hover,
-#bottom-dock.visible{
+#bottom-dock.visible {
     background: none;
 }
 
 /* icones en noir et bordures en gris - recolor icons in black and borders in grey */
-[class^="icon-"], [class*=" icon-"],
+[class^="icon-"],
+[class*=" icon-"],
 #dock-close,
 #mini-dock .icon,
 #switcher button.btn,
@@ -943,7 +947,7 @@ lizmap-overviewmap .ol-overviewmap button span {
 #nav-tab-switcher a::before,
 #nav-tab-metadata a::before,
 #nav-tab-edition a::before,
-#nav-tab-filter a::before{
+#nav-tab-filter a::before {
     background-color: transparent !important;
     filter:brightness(0%);
     box-shadow: none;
@@ -1000,7 +1004,7 @@ div.modal h3,
 #overview-box *,
 #dock div.menu-content,
 .alert,
-#popupcontent .lizmapPopupContent h4{
+#popupcontent .lizmapPopupContent h4 {
     color: black !important;
 }
 
@@ -1026,12 +1030,12 @@ div.modal h3,
 }
 
 /* cacher la barre de scroll des fonds de carte - hide horizontal baseplan scrollbar */
-#dock div.menu-content  {
+#dock div.menu-content {
     overflow-x: hidden;
     width: inherit;
 }
 
-.baselayer-select  {
+.baselayer-select {
     border-radius: 5px !important;
 }
 
@@ -1092,13 +1096,14 @@ div.modal h3,
 /* message et résultat mesure - measure tool alert and result */
 #lizmap-measure-message,
 .alert.alert-block.alert-info.fade.in.print,
-.alert.alert-block.alert-error.fade.in{
+.alert.alert-block.alert-error.fade.in {
     top:50px;
     right: 600px;
 }
 
 /* ajustements outil permalien - fix permalink */
-.nav-tabs>li>a:hover, .nav-tabs>li>a:focus {
+.nav-tabs>li>a:hover,
+.nav-tabs>li>a:focus {
     background: none !important;
 }
 
@@ -1156,6 +1161,6 @@ input.btn-geobookmark-add.btn.btn-mini {
     -ms-backdrop-filter: blur(5px);
 }
 
-.lizmapPopupDiv{
+.lizmapPopupDiv {
     background: none !important;
 }
