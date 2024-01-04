@@ -27,7 +27,7 @@ SOFTWARE.
 WIP Pure CSS theme for https://www.geo70.fr/index.php/view/ Site powered by LizMap.
 Cannot edit JS or HTML, and can only make one CSS file.
 
-Commented for CSS beginners in french and english
+Commented for CSS beginners in french and english.
 
 Palette : https://coolors.co/691e27-0e0d1e-202341-474c79-6d75b1-a2a6c4-d6d6d6-ffffff
 
@@ -36,6 +36,8 @@ base gradient 1 : https://www.joshwcomeau.com/gradient-generator?colors=0e0d1e|2
               3 : https://www.joshwcomeau.com/gradient-generator?colors=0e0d1e|202341|6d75b1|202341|0e0d1e&angle=140&colorMode=hsl&precision=20&easingCurve=0.3728448275862069|0.05603448275862069|-0.05|0.33189655172413796
 
 You can get my code from here but make sure you give credit! https://github.com/Erwan-Vinot/lizmap-theme 
+
+You might run into some issues with outdated browsers.
 
 ---------------------------------------------------------------------------------------------------
 
@@ -836,7 +838,7 @@ th {
 
 /* boite de l'echelle - overview box (scale, pointer coordinates, minimap)*/
 #overview-box {
-    top: 1%;
+    bottom: 87.5%;
     padding-right: 0.4%;
     padding-top: 0.5%;
     padding-bottom: 0.5%;
@@ -889,11 +891,12 @@ lizmap-mouse-position > div.coords-unit > select {
 /* Minimap et bouton minimap - minimap and its button */
 .ol-overviewmap-map {
     position: fixed;
-    bottom: 0;
+    top: 0;
     right: 0;
-    transform: translate(-112%, 2%);
+    transform: translate(-110%, -2%);
     border-radius: 10px  !important;
     overflow: hidden !important;
+    border: solid 1px var(--mid-transparent) !important;
 }
 
 .ol-control button {
@@ -1078,13 +1081,15 @@ div.modal h3,
     height: 100px;
     width: 100px;
     box-shadow: none;
-    -webkit-filter:none;
+    -webkit-filter: none;
 }
 
 /* fenêtre outil - tool window */
 #mini-dock {
     top:14px;
     right: 462px;
+    border: none;
+    background: none !important;
 }
 
 /* titre outil - tool title */
@@ -1118,11 +1123,13 @@ input.btn-geobookmark-add.btn.btn-mini {
 
 /* ajustements atlas, aspect minidock sous l'échelle - fix atlas, minidock aspect placed under scalebar */
 #right-dock {
-    z-index: 10000;
-    top:120px;
+    z-index: 1000;
+    bottom: -120px;
     right: 10px;
-    padding-top: 0  !important;
-    padding-bottom: 0 !important;
+}
+
+#right-dock button#right-dock-close {
+    border:none;
 }
 
 /* ajustements boutons filtrer - fix filter buttons */
