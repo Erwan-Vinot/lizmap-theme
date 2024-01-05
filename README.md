@@ -6,7 +6,7 @@ Made for https://www.geo70.fr/index.php/view/
 Video comparison: https://www.youtube.com/embed/GX_eA7iIty8
 
 This theme was made with these LizMap QGIS extension settings in mind:
-    - "Hide header"
-    - "Popup display" > Dock
+- "Hide header"
+- "Popup display" > Dock
 
-Make sure you use 1:1 aspect ratio project thumbnails
+Make sure you also use 1:1 aspect ratio project thumbnails
