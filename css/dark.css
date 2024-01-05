@@ -36,7 +36,6 @@ base gradient 1 : https://www.joshwcomeau.com/gradient-generator?colors=0e0d1e|2
               3 : https://www.joshwcomeau.com/gradient-generator?colors=0e0d1e|202341|6d75b1|202341|0e0d1e&angle=140&colorMode=hsl&precision=20&easingCurve=0.3728448275862069|0.05603448275862069|-0.05|0.33189655172413796
 
 You can get my code from here but make sure you give credit! https://github.com/Erwan-Vinot/lizmap-theme 
-
 You might run into some issues with outdated browsers.
 
 ---------------------------------------------------------------------------------------------------
@@ -49,13 +48,14 @@ Ce thème a été fait avec les options de l'extention QGIS LizMap suivantes:
     - "Masquer le bandeau du haut"
     - "Zone d'affichage des popup" > Dock
 
+Utilisez aussi des images de projet avec un ration d'aspect 1:1
 
 This theme was made with these LizMap QGIS extension settings in mind:
     - "Hide header"
     - "Popup display" > Dock
 
+Make sure you also use 1:1 aspect ratio project thumbnails
 */
-
 
 
 
@@ -75,6 +75,18 @@ This theme was made with these LizMap QGIS extension settings in mind:
     --light-transparent: #6d75b15a;
     --greyed: #b5b5b5;
     --accent: #fff;
+
+    /* Ajustements dégradés - Gradients adjustments */
+    --gradient1_hue:        0deg;
+    --gradient2_hue:        0deg;
+    --gradient3_hue:        0deg;
+    --gradient_brightness:  1.0;
+    --gradient_contrast:    1.0;
+    --gradient_saturate:    1.0;
+    
+    /* Map elements (not finished but works for black on white) */
+    --map_dock_bg:rgba(255,255,255,0.80);
+    --map_dock_txt:black;
 
     /* dégradés - gradients */
     --gradient1: linear-gradient(
@@ -182,6 +194,7 @@ body {
     background: var(--gradient1); /* ajout d'un dégradé sur le fond sombre uni - add gradient on top of the dark background*/
     background-size: 200% 200%;
     animation: gradientAnimation 15s linear infinite alternate; /* déplacement du dégradré via animation - move the gradient using animations*/
+    backdrop-filter: hue-rotate(var(--gradient1_hue)) brightness(var(--gradient_brightness)) contrast(var(--gradient_contrast)) saturate(var(--gradient_saturate));
 }
 
 /* utilisation de after et before pour ajouter les deux autres dégradés avec des vitesses d'animation différentes */
@@ -189,11 +202,13 @@ body {
 body::after {
     background: var(--gradient2);
     animation: gradientAnimation 11s linear infinite alternate;
+    filter: hue-rotate(var(--gradient2_hue)) brightness(var(--gradient_brightness)) contrast(var(--gradient_contrast)) saturate(var(--gradient_saturate));
 }
 
 body::before {
     background: var(--gradient3);
     animation: gradientAnimation 13s linear infinite alternate;
+    filter: hue-rotate(var(--gradient3_hue)) brightness(var(--gradient_brightness)) contrast(var(--gradient_contrast)) saturate(var(--gradient_saturate));
 }
 
 /* on place les deux dégradés au-dessus du fond - put the two other gradients on top of body's background */
@@ -284,6 +299,7 @@ body::after {
 
 .thumbnail { /* boites projet - projects box */
     position: relative;
+    backdrop-filter: none !important;
     background-color: transparent !important; /* Cacher fond blanc des projets - hide projects' white bg  */
     border: 1px solid var(--dark); 
     border-radius: 4%; /* coins arrondis - round corners  */
@@ -382,7 +398,6 @@ body::after {
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
 }
-
 @-webkit-keyframes fadeInDown2 {
     0% {
         opacity: 0;
@@ -499,7 +514,7 @@ body::after {
     z-index: 1000;
     position: fixed;
     top: 0;
-    height: 3%;
+    height: max-content;
     width: 100%;
 
     /* center les éléments en hauteur et les placer à droite - vertically center items and put them on the right */
@@ -973,7 +988,7 @@ ul.nav.nav-tabs,
     height: max-content !important;
     border: solid 1px var(--mid-transparent);
     border-radius: 10px;
-    background: rgba(255,255,255,0.80);
+    background: var(--map_dock_bg);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     -moz-backdrop-filter: blur(5px);
@@ -1006,7 +1021,7 @@ div.modal h3,
 #dock div.menu-content,
 .alert,
 #popupcontent .lizmapPopupContent h4 {
-    color: black !important;
+    color: var(--map_dock_txt) !important;
 }
 
 
@@ -1093,7 +1108,7 @@ div.modal h3,
 /* titre outil - tool title */
 #mini-dock h3 span.title {
     font-weight: bold;
-    background: rgba(255,255,255,0.80);
+    background: var(--map_dock_bg);
 }
 
 /* message et résultat mesure - measure tool alert and result */
@@ -1159,7 +1174,7 @@ input.btn-geobookmark-add.btn.btn-mini {
 .btn-bottomdock-size {
     border: solid 1px var(--mid-transparent);
     border-radius: 10px;
-    background: rgba(255,255,255,0.80) !important;
+    background: var(--map_dock_bg) !important;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     -moz-backdrop-filter: blur(5px);
