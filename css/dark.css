@@ -819,8 +819,8 @@ th {
 }
 
 #navbar {
-    top: -3.1%;
-    right: 0.5%;
+    top: -25px;
+    right: 15px;
 }
 
 /* logo en noir transparent sans le fond - make logo black and transparent + remove background */
@@ -838,7 +838,7 @@ th {
 
 /* boite de l'echelle - overview box (scale, pointer coordinates, minimap)*/
 #overview-box {
-    bottom: 87.5%;
+    top: 10px;
     padding-right: 0.4%;
     padding-top: 0.5%;
     padding-bottom: 0.5%;
@@ -890,10 +890,9 @@ lizmap-mouse-position > div.coords-unit > select {
 
 /* Minimap et bouton minimap - minimap and its button */
 .ol-overviewmap-map {
-    position: fixed;
-    top: 0;
-    right: 0;
-    transform: translate(-110%, -2%);
+    position: absolute;
+    top: -10px !important;
+    right: 226px !important;
     border-radius: 10px  !important;
     overflow: hidden !important;
     border: solid 1px var(--mid-transparent) !important;
@@ -970,9 +969,8 @@ ul.nav.nav-tabs,
 #mini-dock,
 #overview-box,
 .alert{
-    margin-bottom: 1%; 
-    width: fit-content !important;
-    height: fit-content !important;
+    width: max-content !important;
+    height: max-content !important;
     border: solid 1px var(--mid-transparent);
     border-radius: 10px;
     background: rgba(255,255,255,0.80);
@@ -1057,7 +1055,7 @@ div.modal h3,
 
 /* on applique le style du mapmenu - apply mapmenu style */
 .sub-metadata .menu-content {
-    padding-top: 0  !important;
+    padding-top: 0 !important;
     padding-bottom: 0 !important;
 }
 
@@ -1086,7 +1084,7 @@ div.modal h3,
 
 /* fenêtre outil - tool window */
 #mini-dock {
-    top:14px;
+    top: 14px;
     right: 462px;
     border: none;
     background: none !important;
@@ -1102,7 +1100,7 @@ div.modal h3,
 #lizmap-measure-message,
 .alert.alert-block.alert-info.fade.in.print,
 .alert.alert-block.alert-error.fade.in {
-    top:50px;
+    top: 50px;
     right: 600px;
 }
 
@@ -1124,7 +1122,7 @@ input.btn-geobookmark-add.btn.btn-mini {
 /* ajustements atlas, aspect minidock sous l'échelle - fix atlas, minidock aspect placed under scalebar */
 #right-dock {
     z-index: 1000;
-    bottom: -120px;
+    bottom: -115px;
     right: 10px;
 }
 
