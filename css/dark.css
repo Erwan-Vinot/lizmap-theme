@@ -77,12 +77,12 @@ Make sure you also use 1:1 aspect ratio project thumbnails
     --accent: #fff;
 
     /* Ajustements dégradés - Gradients adjustments */
-    --gradient1_hue:        0deg;
+    /* --gradient1_hue:        0deg;
     --gradient2_hue:        0deg;
     --gradient3_hue:        0deg;
     --gradient_brightness:  1.0;
     --gradient_contrast:    1.0;
-    --gradient_saturate:    1.0;
+    --gradient_saturate:    1.0;                  this breaks the "fixed" header for some reason                        */
     
     /* Map elements (not finished but works for black on white) */
     --map_dock_bg:rgba(255,255,255,0.80);
@@ -194,7 +194,7 @@ body {
     background: var(--gradient1); /* ajout d'un dégradé sur le fond sombre uni - add gradient on top of the dark background*/
     background-size: 200% 200%;
     animation: gradientAnimation 15s linear infinite alternate; /* déplacement du dégradré via animation - move the gradient using animations*/
-    backdrop-filter: hue-rotate(var(--gradient1_hue)) brightness(var(--gradient_brightness)) contrast(var(--gradient_contrast)) saturate(var(--gradient_saturate));
+    /* backdrop-filter: hue-rotate(var(--gradient1_hue)) brightness(var(--gradient_brightness)) contrast(var(--gradient_contrast)) saturate(var(--gradient_saturate)); */
 }
 
 /* utilisation de after et before pour ajouter les deux autres dégradés avec des vitesses d'animation différentes */
@@ -202,13 +202,13 @@ body {
 body::after {
     background: var(--gradient2);
     animation: gradientAnimation 11s linear infinite alternate;
-    filter: hue-rotate(var(--gradient2_hue)) brightness(var(--gradient_brightness)) contrast(var(--gradient_contrast)) saturate(var(--gradient_saturate));
+    /* filter: hue-rotate(var(--gradient2_hue)) brightness(var(--gradient_brightness)) contrast(var(--gradient_contrast)) saturate(var(--gradient_saturate)); */
 }
 
 body::before {
     background: var(--gradient3);
     animation: gradientAnimation 13s linear infinite alternate;
-    filter: hue-rotate(var(--gradient3_hue)) brightness(var(--gradient_brightness)) contrast(var(--gradient_contrast)) saturate(var(--gradient_saturate));
+    /* filter: hue-rotate(var(--gradient3_hue)) brightness(var(--gradient_brightness)) contrast(var(--gradient_contrast)) saturate(var(--gradient_saturate)); */
 }
 
 /* on place les deux dégradés au-dessus du fond - put the two other gradients on top of body's background */
@@ -299,7 +299,7 @@ body::after {
 
 .thumbnail { /* boites projet - projects box */
     position: relative;
-    backdrop-filter: none !important;
+    /* backdrop-filter: none !important; */
     background-color: transparent !important; /* Cacher fond blanc des projets - hide projects' white bg  */
     border: 1px solid var(--dark); 
     border-radius: 4%; /* coins arrondis - round corners  */
@@ -504,6 +504,8 @@ body::after {
 }
 
 #header {
+    position: fixed;
+    top: 0;
     height: 0%; /* Cacher le header de base - Hide default header */
 }
 
@@ -511,6 +513,7 @@ body::after {
 #auth {
     /* Fixe le nouveau header en haut de l'écran et au-dessus des autres éléments */
     /* stick the new header to the top and above the body */
+    /* backdrop-filter: none !important; */
     z-index: 1000;
     position: fixed;
     top: 0;
@@ -528,7 +531,7 @@ body::after {
     border-color: var(--mid); 
     border-bottom-left-radius: 23%; 
     border-bottom-right-radius: 23%;
-    box-shadow: 0px 4px 24px 1px var(--darkest-transparent);
+    box-shadow: 0px 4px 24px 1px var(--darkest-transparent);          
 
     /* flou sous la boite - blur under the project box */
     backdrop-filter: blur(5px);
