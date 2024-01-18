@@ -987,6 +987,10 @@ lizmap-overviewmap .ol-overviewmap button span {
     filter: invert();
 }
 
+.icon .icon-globe {
+    filter:invert() !important;
+}
+
 /* fenetres ajustées et en blanc - white resized windows */
 #dock div.menu-content,
 ul.nav.nav-tabs,
