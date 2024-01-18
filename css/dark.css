@@ -664,6 +664,10 @@ fieldset {
     border-color: var(--mid) ; 
 }
 
+/* fix edge pswd reveal icon */
+::-ms-reveal {
+    filter: invert();
+}
 
 /* -------------------------------------------- Web client - Administration  ---------------------------------------------- */
 
@@ -986,7 +990,8 @@ ul.nav.nav-tabs,
 #right-dock,
 #mini-dock,
 #overview-box,
-.alert{
+.alert,
+#switcher-layers-actions #theme-selector.btn-group > ul{
     width: max-content !important;
     height: max-content !important;
     border: solid 1px var(--mid-transparent);
@@ -1048,6 +1053,11 @@ div.modal h3,
     z-index: 1;
 }
 
+/* themes */
+#switcher-layers-actions #theme-selector.btn-group > ul {
+    left: -10px !important;
+}
+
 /* cacher la barre de scroll des fonds de carte - hide horizontal baseplan scrollbar */
 #dock div.menu-content {
     overflow-x: hidden;
@@ -1066,6 +1076,10 @@ div.modal h3,
     transform: translate(0%, 40px);
 }
 
+/* fix placement bouton popup */
+#dock div.menu-content {
+    padding-right: 30px;
+}
 .sub-metadata .title, .sub-metadata h3 {
     display: none !important; /* plus de titre - remove title */
     border: none;
