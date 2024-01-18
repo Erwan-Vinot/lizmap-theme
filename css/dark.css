@@ -958,11 +958,11 @@ lizmap-overviewmap .ol-overviewmap button span {
 }
 
 /* icones en noir et bordures en gris - recolor icons in black and borders in grey */
-[class^="icon-"],
-[class*=" icon-"],
 #dock-close,
 #mini-dock .icon,
-#switcher button.btn,
+#switcher button.btn-mini#layers-fold-all,
+#switcher button.btn-mini#layers-unfold-all,
+#switcher button.btn-mini.layerActionZoom,
 #tmLayers button.btn,
 #dock .tree button.checkbox,
 #right-dock .tree button.checkbox,
@@ -976,6 +976,15 @@ lizmap-overviewmap .ol-overviewmap button span {
     filter:brightness(0%);
     box-shadow: none;
     border-color: var(--mid-transparent) !important;
+}
+
+#theme-selector .mActionShowAllLayers {
+    filter: invert() hue-rotate(220deg) saturate(150%) !important;
+    background-position: -422px -2px !important;
+}
+
+.icon-star {
+    filter: invert();
 }
 
 /* fenetres ajustées et en blanc - white resized windows */
@@ -1056,6 +1065,11 @@ div.modal h3,
 /* themes */
 #switcher-layers-actions #theme-selector.btn-group > ul {
     left: -10px !important;
+}
+
+.dropdown-menu>li>a:hover {
+    background-color: var(--dark-transparent);
+    background-image: none !important;
 }
 
 /* cacher la barre de scroll des fonds de carte - hide horizontal baseplan scrollbar */
