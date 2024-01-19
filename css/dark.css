@@ -1,4 +1,3 @@
-
 /* MIT License
 
 Copyright (c) 2024 Erwan Vinot
@@ -990,6 +989,10 @@ lizmap-overviewmap .ol-overviewmap button span {
     background-position: -422px -2px !important;
 }
 
+ul.dropdown-menu.dropdown-menu-right {
+    text-align: left;
+}
+
 .icon-star {
     filter: invert();
 }
@@ -1001,7 +1004,7 @@ lizmap-overviewmap .ol-overviewmap button span {
 .nav-list>.active> a {
     background: var(--light-transparent) !important;
     filter: brightness(120%)!important;
-    border-radius: 30%;
+    border-radius: 10px;
 }
 
 #mapmenu .nav-list > li.active .icon {
