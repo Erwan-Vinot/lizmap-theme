@@ -1,3 +1,4 @@
+
 /* MIT License
 
 Copyright (c) 2024 Erwan Vinot
@@ -283,6 +284,10 @@ body::after {
     align-items: center;
 }
 
+.liz-repository-project-list {
+    gap: 0px;
+}
+
 /* ajustement style texte titre projet - change title text style */
 .thumbnail h5 {
     font-size: 13pt !important;
@@ -292,13 +297,15 @@ body::after {
 /* ajustement taille et coins image projet - ajust project img size and corners */
 .liz-project-img {
     border-radius: 10px;
-    height: 200px;
-    width: 200px;
+    height: 180px;
+    width: 180px;
     -webkit-filter: drop-shadow(0 10px 15px var(--darkest-transparent) ); 
 }
 
 .thumbnail { /* boites projet - projects box */
     position: relative;
+    height: 90% !important;
+    aspect-ratio: 1/1;
     /* backdrop-filter: none !important; */
     background-color: transparent !important; /* Cacher fond blanc des projets - hide projects' white bg  */
     border: 1px solid var(--dark); 
@@ -973,7 +980,7 @@ lizmap-overviewmap .ol-overviewmap button span {
 #nav-tab-edition a::before,
 #nav-tab-filter a::before {
     background-color: transparent !important;
-    filter:brightness(0%);
+    filter: brightness(0%);
     box-shadow: none;
     border-color: var(--mid-transparent) !important;
 }
@@ -988,7 +995,21 @@ lizmap-overviewmap .ol-overviewmap button span {
 }
 
 .icon .icon-globe {
-    filter:invert() !important;
+    filter: invert() !important;
+}
+
+.nav-list>.active> a {
+    background: var(--light-transparent) !important;
+    filter: brightness(120%)!important;
+    border-radius: 30%;
+}
+
+#mapmenu .nav-list > li.active .icon {
+    filter: brightness(500%)!important;
+}
+
+#mapmenu .nav-list > li.draw.active .icon {
+    filter: invert(1) !important;
 }
 
 /* fenetres ajustées et en blanc - white resized windows */
