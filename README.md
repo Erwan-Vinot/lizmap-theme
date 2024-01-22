@@ -2,7 +2,7 @@
 
 ![preview](https://github.com/Erwan-Vinot/lizmap-theme/blob/main/preview.png?raw=true)
 
-Made for https://www.geo70.fr/index.php/view/ (not live yet)
+Made for https://www.geo70.fr/index.php/view/ (site under construction)
 
 Video comparison: https://www.youtube.com/embed/GX_eA7iIty8
 
