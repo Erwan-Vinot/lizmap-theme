@@ -1051,6 +1051,7 @@ ul.nav.nav-tabs,
 #mini-dock,
 #overview-box,
 .alert,
+#tooltipPopupContent,
 #switcher-layers-actions #theme-selector.btn-group > ul{
     width: max-content !important;
     height: max-content !important;
@@ -1088,6 +1089,7 @@ div.modal h3,
 #overview-box *,
 #dock div.menu-content,
 .alert,
+#tooltipPopupContent,
 #popupcontent .lizmapPopupContent h4 {
     color: var(--map_dock_txt) !important;
 }
@@ -1250,7 +1252,7 @@ input.btn-geobookmark-add.btn.btn-mini {
     border-color: var(--mid-transparent) !important;
 }
 
-/* ajustements data view - fix data view*/
+/* ajustements data view - fix data view */
 #attributeLayers .tab-content .attribute-content,
 .btn-bottomdock-clear,
 .btn-bottomdock-size {
@@ -1265,4 +1267,9 @@ input.btn-geobookmark-add.btn.btn-mini {
 
 .lizmapPopupDiv {
     background: none !important;
+}
+
+/* ajustement infobulle */
+#tooltipPopupContent {
+    padding: 5px;
 }
