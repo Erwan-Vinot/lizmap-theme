@@ -187,7 +187,7 @@ Make sure you also use 1:1 aspect ratio project thumbnails
 
   ::-webkit-scrollbar {
     width: 13px;
-    background: var(--dark-transparent);
+    background: #00000001 !important;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -1272,4 +1272,22 @@ input.btn-geobookmark-add.btn.btn-mini {
 /* ajustement infobulle */
 #tooltipPopupContent {
     padding: 5px;
+}
+
+/* fix data table button tooltips */
+.tooltip.fade.bottom.in > .tooltip-inner {
+    background-color: white !important;
+    font-weight: bolder;
+    font-size: 12pt !important;
+}
+
+/* lighter tilelayer attrib */
+#attribution a {
+    color: rgba(0,0,0,0.5) !important;
+    font-size: 0.6rem !important;
+}
+
+/* fix tilelayer select */
+.baselayer-select .label {
+    width: 230px !important;
 }
