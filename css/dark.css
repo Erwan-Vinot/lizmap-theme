@@ -1323,7 +1323,7 @@ input.btn-geobookmark-add.btn.btn-mini {
 
 /* fix popup table width */
 #popupcontent .lizmapPopupTable {
-    max-width: 500px;
+    max-width: 490px;
 }
 
 /* fix table bg + text */
@@ -1343,3 +1343,4 @@ input.btn-geobookmark-add.btn.btn-mini {
     border: 1px solid var(--light) !important;
     border-collapse: unset;
 }
+
