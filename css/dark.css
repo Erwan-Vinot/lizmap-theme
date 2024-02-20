@@ -1099,31 +1099,46 @@ div.modal h3,
 
 /* bouton fermer dock simplifié - optimize close deck button */
 #dock-close {
+    position: absolute !important;
     border: none;
-    transform: translate(0%, 130%);
+    transform: translate(-10px, 40px);
 }
 
 /* espace pour les actions de couche - add space of layer actions*/
 #switcher-layers-container > div.menu-content {
-    padding-top: 20px;
+    padding-top: 30px;
 }
 
 /* placement des actions de couche - layer actions placement*/
 #switcher-layers-actions {
     position: absolute;
-    left:10%;
+    left: 60px;
+    transform: translate(4px, 5px);
     z-index: 1;
+    background: rgba(255,255,255,0.9);
+    border-radius: 10px;
 }
 
-/* themes */
+/* themes dropdown */
 #switcher-layers-actions #theme-selector.btn-group > ul {
     left: -10px !important;
+}
+
+/* fix images légende */
+#switcher div.legendGraphics {
+    max-width: 300px !important;
 }
 
 .dropdown-menu>li>a:hover {
     background-color: var(--dark-transparent);
     background-image: none !important;
 }
+
+/* fix tilelayer select */
+.baselayer-select .label {
+    width: 230px !important;
+}
+
 
 /* cacher la barre de scroll des fonds de carte - hide horizontal baseplan scrollbar */
 #dock div.menu-content {
@@ -1147,6 +1162,7 @@ div.modal h3,
 #dock div.menu-content {
     padding-right: 30px;
 }
+
 .sub-metadata .title, .sub-metadata h3 {
     display: none !important; /* plus de titre - remove title */
     border: none;
@@ -1225,10 +1241,6 @@ input.btn-geobookmark-add.btn.btn-mini {
     right: 10px;
 }
 
-#right-dock button#right-dock-close {
-    border:none;
-}
-
 /* ajustements boutons filtrer - fix filter buttons */
 #filter-content div.menu-content {
     padding-right: 30px;
@@ -1265,10 +1277,6 @@ input.btn-geobookmark-add.btn.btn-mini {
     -ms-backdrop-filter: blur(5px);
 }
 
-.lizmapPopupDiv {
-    background: none !important;
-}
-
 /* ajustement infobulle */
 #tooltipPopupContent {
     padding: 5px;
@@ -1278,7 +1286,13 @@ input.btn-geobookmark-add.btn.btn-mini {
 .tooltip.fade.bottom.in > .tooltip-inner {
     background-color: white !important;
     font-weight: bolder;
-    font-size: 12pt !important;
+    color: black !important;
+    font-size: 10pt !important;
+}
+
+/* intermediate black tooltip */
+.tooltip.fade.bottom:not(.in) {
+    display: none !important;
 }
 
 /* lighter tilelayer attrib */
@@ -1287,7 +1301,45 @@ input.btn-geobookmark-add.btn.btn-mini {
     font-size: 0.6rem !important;
 }
 
-/* fix tilelayer select */
-.baselayer-select .label {
-    width: 230px !important;
+
+/* Popup fixes" */
+
+/* Remove "popup" dock title" */
+#nav-tab-popupcontent a {
+    display: none !important;
+}
+
+/* shift popup div to match other docks */
+#popupcontent div.menu-content {
+    margin-top: 30px;!important
+}
+
+/* popup Bold layer name */
+.lizmapPopupTitle {
+    font-weight: bold !important;
+    padding-left: 20px !important;
+    margin-bottom: -10px !important
+}
+
+/* fix popup table width */
+#popupcontent .lizmapPopupTable {
+    max-width: 600px;
+}
+
+/* fix table bg + text */
+#popupcontent .lizmapPopupTable *{
+    background-color: white !important;
+    text-align: left !important;
+}
+
+/* fix popup table outer bg*/
+#dock div.lizmapPopupDiv, #mini-dock div.lizmapPopupDiv, #right-dock div.lizmapPopupDiv, #bottom-dock div.lizmapPopupDiv {
+    background-color: transparent !important;
+}
+
+/* fix popup table bg + add border */
+.lizmapPopup.olPopup .lizmapPopupTable, #map-content .lizmapPopupTable, #popupcontent .lizmapPopupTable { 
+    background-color: white !important;
+    border: 1px solid var(--light) !important;
+    border-collapse: unset;
 }
