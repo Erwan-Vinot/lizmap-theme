@@ -881,6 +881,7 @@ th {
 
 #attribution-box img {
     padding-bottom: 1%;
+    max-height: 43px;
     filter: brightness(0%) opacity(50%);
 }
 
