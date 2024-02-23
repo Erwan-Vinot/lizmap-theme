@@ -1422,7 +1422,16 @@ table#attribute-layer-list-table {
 .active.attribute-content .btn-group .form-control {
     height: 15px;
     margin-bottom: 0px;
+}
 
+/* font fix */
+#bottom-dock-content .btn,.active.attribute-content .btn-group .form-control, #attributeLayers .tab-content .attribute-content .dataTables_wrapper .dataTables_length select {
+    font-family: inherit;
+}
+
+/* bold select data */
+#bottom-dock-content .btn {
+    font-weight: bold;
 }
 
 /* fix des boutons à côté de la searchbar */
@@ -1430,7 +1439,7 @@ div.attribute-layer-action-bar .btn {
     margin-left: 5px;
 }
 
-/* sélection du tableau */
+/* selection du tableau */
 table.attribute-table-table>tbody>tr.selected>*{
     box-shadow: inset 0 0 0 100px var(--mid-transparent) !important;
     font-weight: bolder;
@@ -1447,12 +1456,12 @@ table.attribute-table-table>tbody>tr.selected>*{
     height: 100%;
 }
 
-/* Afficher tous les formats d'export */
+/* afficher tous les formats d'export */
 .attribute-layer-action-bar .export-formats .dropdown-menu {
     max-height: none;
 }
 
-/* Espacement à gauche de "afficher 50 enregistrements" */
+/* espacement à gauche de "afficher 50 enregistrements" */
 #attributeLayers .tab-content .attribute-content .dataTables_wrapper .dataTables_length label {
     padding-left: 50px;
 }
