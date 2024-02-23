@@ -846,6 +846,27 @@ th {
     background: transparent;
 }
 
+/* Ajustements liste des droitsadmin.php/acl-admin/groups/allrights */
+table#rights-list.jacl2-list.jacl2-list-sticky-heads tbody th,
+table#rights-list.jacl2-list tbody td,
+table#rights-list.jacl2-list-user tbody td {
+    background: none;
+    border: solid 1px var(--light-transparent);
+}
+
+select.right-no, span.right-no {
+    color: rgb(253,82,82)
+}
+
+table#rights-list.jacl2-list.jacl2-list-sticky-heads thead{
+    position: static;
+}
+
+table#rights-list th {
+    padding: 8px;
+    border: solid 1px var(--light-transparent);
+}
+
 
   /* --------------------------------------------------------------------------------------------------------------------------- */
 /* --------------------------------------------         M A P        ------------------------------------------------------------- */
@@ -1461,7 +1482,6 @@ table.attribute-table-table>tbody>tr.selected>*{
     max-height: none;
 }
 
-/* espacement à gauche de "afficher 50 enregistrements" */
 #attributeLayers .tab-content .attribute-content .dataTables_wrapper .dataTables_length label {
     padding-left: 50px;
 }
