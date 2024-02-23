@@ -828,11 +828,16 @@ table.lizmap_project_list tr .liz-warning {
 /* info serveur */
 .table-striped tbody > tr:nth-child(2n + 1) > td,
 .table-striped tbody > tr:nth-child(2n + 1) > th {
-    background-color: var(--dark-transparent);
+    background-color: var(--light-transparent);
 }
 
 th {
     font-weight: normal !important;
+}
+
+/* fix liste des users */
+.row-fluid .table-hover tbody tr:hover>td, .table-hover tbody tr:hover>th {
+    background-color: var(--light-transparent)
 }
 
 /* editeur contenu de la page d'accueil - landing page editor*/
@@ -1258,8 +1263,7 @@ input.btn-geobookmark-add.btn.btn-mini {
 /* ajustements boutons - fix buttons */
 #print-launch, 
 #timemanager button,
-#atlas button,
-#bottom-dock button {
+#atlas button {
     background: none;
     box-shadow: none;
     border-color: var(--mid-transparent) !important;
@@ -1284,15 +1288,16 @@ input.btn-geobookmark-add.btn.btn-mini {
 }
 
 /* fix data table button tooltips */
-.tooltip.fade.bottom.in > .tooltip-inner {
+.tooltip.fade.bottom.in > .tooltip-inner, .tooltip.fade.top.in > .tooltip-inner {
     background-color: white !important;
     font-weight: bolder;
     color: black !important;
     font-size: 10pt !important;
+    transform: translate(20%)
 }
 
 /* intermediate black tooltip */
-.tooltip.fade.bottom:not(.in) {
+.tooltip.fade.bottom:not(.in), .tooltip.fade.top:not(.in) {
     display: none !important;
 }
 
@@ -1312,7 +1317,7 @@ input.btn-geobookmark-add.btn.btn-mini {
 
 /* shift popup div to match other docks */
 #popupcontent div.menu-content {
-    margin-top: 30px;!important
+    margin-top: 30px !important;
 }
 
 /* popup Bold layer name */
@@ -1345,3 +1350,109 @@ input.btn-geobookmark-add.btn.btn-mini {
     border-collapse: unset;
 }
 
+/* /////// fix bottom docks /////// */
+/* pas d'effet d'opacité */
+#bottom-dock {
+    opacity: 1 !important;
+    border: none;
+}
+
+/* Placement des titres */
+#attributeLayers-tabs > li > a {
+    margin-top: 0px !important;
+}
+
+.tabbable.tabs-below {
+    padding-left: 5px !important;
+}
+
+/* Couleur des titres */
+#bottom-dock #attributeLayers-tabs > li > a {
+    margin: 1px;
+    background-color: var(--light-transparent);
+    border-radius: 10px;
+}
+
+/* fond des titres */
+#attributeLayers-tabs {
+    background: white;
+}
+
+/* Fond du dock */
+#attributeLayers .tab-content .attribute-content, .btn-bottomdock-clear, .btn-bottomdock-size  {
+    background: white !important;
+}
+
+/* Rapprocher la table du titre*/
+#bottom-dock.fullsize #attributeLayers .tab-content .attribute-content {
+    top: 50px;
+}
+
+/* centrer les noms des données */
+.table-striped td {
+    vertical-align: middle;
+}
+
+/* Table de la selection des données arrondie */
+table#attribute-layer-list-table {
+    border-radius: 10px !important;
+    overflow: hidden;
+}
+
+/* Table de la selection des données sans marge en dessous  */
+table#attribute-layer-list-table {
+    margin-bottom: 0px;
+}
+
+/* Style plus épuré des boutons */
+#bottom-dock-content .btn {
+    background: white;
+}
+#bottom-dock-content .btn:hover, #bottom-dock-content .btn-primary:hover {
+    background: var(--mid-transparent) !important;
+}
+
+/* Style plus épuré des boutons des pages */
+.paginate_button.active a {
+    background-color: var(--mid-transparent) !important;
+    border-color: var(--mid-transparent) !important;
+}
+
+/* fix de la searchbar */
+.active.attribute-content .btn-group .form-control {
+    height: 15px;
+    margin-bottom: 0px;
+
+}
+
+/* fix des boutons à côté de la searchbar */
+div.attribute-layer-action-bar .btn {
+    margin-left: 5px;
+}
+
+/* sélection du tableau */
+table.attribute-table-table>tbody>tr.selected>*{
+    box-shadow: inset 0 0 0 100px var(--mid-transparent) !important;
+    font-weight: bolder;
+}
+
+/* Real fullsize */
+.visible.fullsize .dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody {
+    height: 77dvh !important;
+}
+.visible.fullsize .tab-pane.attribute-content.bottom-content.active {
+    height: 91%;
+}
+.visible.fullsize .attribute-layer-content {
+    height: 100%;
+}
+
+/* Afficher tous les formats d'export */
+.attribute-layer-action-bar .export-formats .dropdown-menu {
+    max-height: none;
+}
+
+/* Espacement à gauche de "afficher 50 enregistrements" */
+#attributeLayers .tab-content .attribute-content .dataTables_wrapper .dataTables_length label {
+    padding-left: 50px;
+}
