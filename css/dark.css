@@ -1467,7 +1467,7 @@ div.attribute-layer-action-bar .btn {
 
 /* selection du tableau */
 table.attribute-table-table>tbody>tr.selected>*{
-    box-shadow: inset 0 0 0 100px var(--mid-transparent) !important;
+    box-shadow: inset 0 0 0 100px rgba(107,98,219,0.61) !important;
     font-weight: bolder;
 }
 
@@ -1491,7 +1491,6 @@ table.attribute-table-table>tbody>tr.selected>*{
     padding-left: 50px;
 }
 
-/* quick disgusting fix to match "home" button */
 .icon-question-sign {
     scale: 140%;
 }
