@@ -1308,6 +1308,11 @@ input.btn-geobookmark-add.btn.btn-mini {
     padding: 5px;
 }
 
+/* tooltips des boutons de gauche au dessus du reste */
+.tooltip.fade.right {
+    z-index: 99999;
+}
+
 /* fix data table button tooltips */
 .tooltip.fade.bottom.in > .tooltip-inner, .tooltip.fade.top.in > .tooltip-inner {
     background-color: white !important;
