@@ -1490,3 +1490,8 @@ table.attribute-table-table>tbody>tr.selected>*{
 #attributeLayers .tab-content .attribute-content .dataTables_wrapper .dataTables_length label {
     padding-left: 50px;
 }
+
+/* quick disgusting fix to match "home" button */
+.icon-question-sign {
+    scale: 140%;
+}
