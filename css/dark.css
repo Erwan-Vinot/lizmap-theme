@@ -1201,6 +1201,14 @@ div.modal h3,
     padding-bottom: 0 !important;
 }
 
+.menu-content dt {
+  padding-top: 10px;
+}
+
+sub-metadata dd {
+  max-width: 300px;
+}
+
 /* boutons plus simples - simpler buttons */
 .btn-mini,.dl-vertical .icon-zoom-in {
     box-shadow: none;
