@@ -1202,11 +1202,11 @@ div.modal h3,
 }
 
 .menu-content dt {
-  padding-top: 10px;
+ padding-top: 10px;
 }
 
-sub-metadata dd {
-  max-width: 300px;
+.sub-metadata dd {
+  max-width: 300px; 
 }
 
 /* boutons plus simples - simpler buttons */
