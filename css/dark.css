@@ -1187,7 +1187,7 @@ div.modal h3,
 
 /* fix placement bouton popup */
 #dock div.menu-content {
-    padding-right: 30px;
+    padding-right: 50px;
 }
 
 .sub-metadata .title, .sub-metadata h3 {
@@ -1199,14 +1199,6 @@ div.modal h3,
 .sub-metadata .menu-content {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
-}
-
-.menu-content dt {
- padding-top: 10px;
-}
-
-.sub-metadata dd {
-  max-width: 300px; 
 }
 
 /* boutons plus simples - simpler buttons */
@@ -1499,6 +1491,18 @@ table.attribute-table-table>tbody>tr.selected>*{
     padding-left: 50px;
 }
 
+/* icon size fix */
 .icon-question-sign {
     scale: 140%;
+}
+
+/* icon size fix */
+.icon-question-sign {
+    scale: 140%;
+}
+
+/* fix theme wrapper cutoff */
+#dock {
+    border-left: none;
+    overflow: visible;
 }
