@@ -1516,7 +1516,7 @@ input,button,select,textarea {
 /* Layer style selector width fix */
 select {
     width: auto;
-    max-width: max-content !important;
+    max-width: 300px !important;
 }
 
 .menu-content dt {
@@ -1524,5 +1524,5 @@ select {
 }
    
 .sub-metadata dd {
-     max-width: 300px; 
+    max-width: 300px; 
 }
