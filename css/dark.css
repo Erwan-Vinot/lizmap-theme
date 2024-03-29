@@ -209,6 +209,7 @@ Make sure you also use 1:1 aspect ratio project thumbnails
 /* ---------------------- Web client - Home - corps du site et fond / body and background ------------------------ */
 
 body {
+    font-family: "century gothic", century gothic !important;
     color: var(--accent); /* Texte blanc - white text */
     background-color: var(--darkest) !important; /* fond sombre uni - solid dark background */
     height: max(100vh, 100%);
@@ -1505,4 +1506,23 @@ table.attribute-table-table>tbody>tr.selected>*{
 #dock {
     border-left: none;
     overflow: visible;
+}
+
+/* font fix */
+input,button,select,textarea {
+    font-family: inherit !important;
+}
+
+/* Layer style selector width fix */
+select {
+    width: auto;
+    max-width: max-content !important;
+}
+
+.menu-content dt {
+    padding-top: 10px;
+}
+   
+.sub-metadata dd {
+     max-width: 300px; 
 }
