@@ -1183,7 +1183,7 @@ div.modal h3,
 /* plus de fond noir transparent + placement - hide black transparent background and placement */
 #sub-dock {
     background: none;
-    transform: translate(0%, 40px);
+    transform: translate(0%, 38px);
 }
 
 /* fix placement bouton popup */
@@ -1525,4 +1525,13 @@ select {
    
 .sub-metadata dd {
     max-width: 300px; 
+}
+
+
+#sub-dock div.menu-content {
+    background: var(--map_dock_bg);
+}
+
+div#sub-dock {
+    border-left: none;
 }
