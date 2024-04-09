@@ -904,6 +904,7 @@ table#rights-list th {
     background-color: transparent;
     filter:brightness(0%);
     border-color: var(--mid-transparent) !important;
+    background-position: 60px 60px !important;
 }
 
 #navbar {
@@ -1078,7 +1079,7 @@ ul.dropdown-menu.dropdown-menu-right {
 
 /* fenetres ajustées et en blanc - white resized windows */
 #dock div.menu-content,
-ul.nav.nav-tabs,
+ul.nav.nav-tabs:not(#right-dock-tabs),
 #metadata,
 #attribute-summary.attribute-content.bottom-content,
 .sub-metadata .menu-content,
@@ -1138,8 +1139,19 @@ div.modal h3,
 /* bouton fermer dock simplifié - optimize close deck button */
 #dock-close {
     position: absolute !important;
-    border: none;
     transform: translate(-10px, 40px);
+}
+
+#dock-close, #right-dock-close{
+    border: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'%3E%3Cpath d='M2 2l12 12m0-12L2 14' stroke='currentColor' stroke-width='2' fill='none'/%3E%3C/svg%3E") !important;
+}
+
+#right-dock-close{
+    top: 7px;
+    right: 10px;
+    width: 28px;
+    height: 28px;
 }
 
 /* espace pour les actions de couche - add space of layer actions*/
@@ -1403,6 +1415,10 @@ input.btn-geobookmark-add.btn.btn-mini {
     padding-left: 5px !important;
 }
 
+#right-dock div.tabbable {
+    margin-bottom: 5px;
+}
+
 /* Couleur des titres */
 #bottom-dock #attributeLayers-tabs > li > a {
     margin: 1px;
@@ -1529,6 +1545,10 @@ select {
     max-width: 300px !important;
 }
 
+#right-dock div.menu-content {
+    border-radius: 5px;
+}
+
 .menu-content dt {
     padding-top: 10px;
 }
@@ -1537,11 +1557,22 @@ select {
     max-width: 300px; 
 }
 
-
 #sub-dock div.menu-content {
     background: var(--map_dock_bg);
 }
 
 div#sub-dock {
     border-left: none;
+}
+
+#right-dock-tabs > .active > a {
+    font-size: 24px;
+}
+
+ul#right-dock-tabs {
+    border: none;
+}
+
+iframe {
+    border-radius: 5px;
 }
