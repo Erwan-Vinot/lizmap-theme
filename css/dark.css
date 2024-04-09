@@ -1566,7 +1566,7 @@ div#sub-dock {
 }
 
 #right-dock-tabs > .active > a {
-    font-size: 24px;
+    font-size: 20px;
 }
 
 ul#right-dock-tabs {
@@ -1575,4 +1575,13 @@ ul#right-dock-tabs {
 
 iframe {
     border-radius: 5px;
+}
+
+.nav-tabs > .active > a {
+    font-size:20px
+}
+
+#mini-dock h3 span.title {
+    font-weight: normal;
+    font-size: 20px;
 }
