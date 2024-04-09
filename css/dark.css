@@ -855,6 +855,16 @@ table#rights-list.jacl2-list-user tbody td {
     border: solid 1px var(--light-transparent);
 }
 
+.jacl2-list.jacl2-list-sticky-heads tbody th, .jacl2-list-user.jacl2-list-sticky-heads tbody th {
+    background: none !important;
+}
+
+.jacl2-list.jacl2-list-sticky-heads thead, .jacl2-list-user.jacl2-list-sticky-heads thead {
+    top: 30px !important;
+    background: var(--darkest-transparent);
+    backdrop-filter: blur(10px);
+}
+
 select.right-no, span.right-no {
     color: rgb(253,82,82)
 }
