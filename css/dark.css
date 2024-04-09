@@ -1585,3 +1585,36 @@ iframe {
     font-weight: normal;
     font-size: 20px;
 }
+
+/* support map popup */
+
+.lizmapPopup.olPopup, #map-content .lizmapPopup {
+    background: none !important;
+    border: 1px solid #C9C9C9 !important;
+    color: black !important;
+    border-radius: 5px;
+    background-color: var(--map_dock_bg) !important;
+    backdrop-filter: blur(10px);
+    padding-top: 5px !important;
+}
+
+.lizmapPopup.olPopup .lizmapPopupContent h4, #map-content .lizmapPopupContent h4 {
+    color: black !important;
+    border: none;
+    padding-bottom: 5px !important;
+}
+
+#map-content .lizmapPopup .olPopupCloseBox {
+    background-color: var(--mid);
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.lizmapPopup.olPopup .lizmapPopupTable thead, #map-content .lizmapPopupTable thead  {
+    background-color: var(--accent);
+}
+
+
+div#liz_layer_popup_contentDiv,div#liz_layer_popup {
+    height: unset !important;
+}
