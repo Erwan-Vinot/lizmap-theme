@@ -1614,7 +1614,10 @@ iframe {
     background-color: var(--accent);
 }
 
-
 div#liz_layer_popup_contentDiv,div#liz_layer_popup {
     height: unset !important;
+}
+
+#switcher div.legendGraphics img {
+    max-width: 300px !important;
 }
