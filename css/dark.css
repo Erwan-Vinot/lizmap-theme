@@ -1625,3 +1625,7 @@ div#liz_layer_popup_contentDiv,div#liz_layer_popup {
 #switcher .treeTable td a.expander {
     opacity: 30%;
 }
+
+.mutually-exclusive[id^="group"] button {
+    display: none;
+}
