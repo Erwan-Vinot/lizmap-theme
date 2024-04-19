@@ -1621,3 +1621,7 @@ div#liz_layer_popup_contentDiv,div#liz_layer_popup {
 #switcher div.legendGraphics img {
     max-width: 300px !important;
 }
+
+#switcher .treeTable td a.expander {
+    opacity: 30%;
+}
