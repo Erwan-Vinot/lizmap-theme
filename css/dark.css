@@ -1619,6 +1619,7 @@ div#liz_layer_popup_contentDiv,div#liz_layer_popup {
 #switcher div.baselayer-select {
     border: none;
     background: none;
+    border: none !important;
 }
 
 #switcher div.baselayer-select select {
