@@ -21,7 +21,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 
-
 ---------------------------------------------- I N F O ----------------------------------------------
 
 WIP Pure CSS theme for https://www.geo70.fr/index.php/view/ Site powered by LizMap.
@@ -1202,11 +1201,6 @@ div.modal h3,
     transform: translate(0%, 38px);
 }
 
-/* fix placement bouton popup */
-#dock div.menu-content {
-    padding-right: 50px;
-}
-
 .sub-metadata .title, .sub-metadata h3 {
     display: none !important; /* plus de titre - remove title */
     border: none;
@@ -1533,12 +1527,6 @@ input,button,select,textarea {
     font-family: inherit !important;
 }
 
-/* Layer style selector width fix */
-select {
-    width: auto;
-    max-width: 300px !important;
-}
-
 #right-dock div.menu-content {
     border-radius: 5px;
 }
@@ -1630,4 +1618,9 @@ div#liz_layer_popup_contentDiv,div#liz_layer_popup {
 
 #switcher div.baselayer-select {
     border: none;
+}
+
+#switcher div.baselayer-select select {
+    margin-bottom: 0;
+    margin-right: 20px;
 }
