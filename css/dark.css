@@ -1639,3 +1639,7 @@ div#liz_layer_popup_contentDiv,div#liz_layer_popup {
     margin: 0px; 
 }
 
+.btn {
+    background-color: #f8f8f8;
+}
+
