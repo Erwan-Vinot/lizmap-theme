@@ -1621,12 +1621,12 @@ div#liz_layer_popup_contentDiv,div#liz_layer_popup {
     background: none;
     -webkit-appearance: auto;
     width: fit-content;
-    padding: none;
-    margin: none; 
+    padding: 0px;
+    margin: 0px; 
 }
 
 #switcher div.baselayer-select select {
-    margin-bottom: none;
-    margin-right: none;
+    margin-bottom: 0px;
+    margin-right: 0px;
 }
 
