@@ -1619,14 +1619,12 @@ div#liz_layer_popup_contentDiv,div#liz_layer_popup {
 #switcher div.baselayer-select {
     border: none;
     background: none;
-    -webkit-appearance: auto;
-    width: fit-content;
-    padding: 0px;
-    margin: 0px; 
 }
 
 #switcher div.baselayer-select select {
-    margin-bottom: 0px;
-    margin-right: 0px;
+    -webkit-appearance: auto;
+    width: fit-content !important;
+    padding: 0px;
+    margin: 0px; 
 }
 
