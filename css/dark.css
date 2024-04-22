@@ -1624,6 +1624,7 @@ div#liz_layer_popup_contentDiv,div#liz_layer_popup {
 #switcher div.baselayer-select select {
     -webkit-appearance: auto;
     width: fit-content !important;
+    border: none !important;
     padding: 0px;
     margin: 0px; 
 }
