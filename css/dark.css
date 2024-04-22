@@ -1150,7 +1150,7 @@ div.modal h3,
 }
 
 .tab-pane .btn-default {
-    background-image: none;
+    background-image: none !important;
     border-color: #e0e0e0;
     margin-top: 1px;
     height: 28px;
@@ -1627,7 +1627,6 @@ div#liz_layer_popup_contentDiv,div#liz_layer_popup {
 }
 
 #switcher div.baselayer-select {
-    border: none;
     background: none;
     border: none !important;
 }
