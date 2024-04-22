@@ -1184,12 +1184,6 @@ div.modal h3,
     background-image: none !important;
 }
 
-/* fix tilelayer select */
-.baselayer-select .label {
-    width: 230px !important;
-}
-
-
 /* cacher la barre de scroll des fonds de carte - hide horizontal baseplan scrollbar */
 #dock div.menu-content {
     overflow-x: hidden;
@@ -1628,4 +1622,12 @@ div#liz_layer_popup_contentDiv,div#liz_layer_popup {
 
 .mutually-exclusive[id^="group"] button {
     display: none;
+}
+
+#switcher-baselayer .menu-content {
+    padding: 3px !important;
+}
+
+#switcher div.baselayer-select {
+    border: none;
 }
