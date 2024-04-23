@@ -84,7 +84,7 @@ Make sure you also use 1:1 aspect ratio project thumbnails
     --gradient_saturate:    1.0;                  this breaks the "fixed" header for some reason                        */
     
     /* Map elements (not finished but works for black on white) */
-    --map_dock_bg:rgba(255,255,255,0.50);
+    --map_dock_bg:rgba(255,255,255,0.70);
     --map_dock_txt:black;
 
     /* dégradés - gradients */
