@@ -84,7 +84,7 @@ Make sure you also use 1:1 aspect ratio project thumbnails
     --gradient_saturate:    1.0;                  this breaks the "fixed" header for some reason                        */
     
     /* Map elements (not finished but works for black on white) */
-    --map_dock_bg:rgba(255,255,255,0.80);
+    --map_dock_bg:rgba(255,255,255,0.50);
     --map_dock_txt:black;
 
     /* dégradés - gradients */
@@ -1656,3 +1656,27 @@ div#liz_layer_popup_contentDiv,div#liz_layer_popup {
     margin-left: 0px;
 }
 
+/* Pour rendre les en-têtes de table "sticky" */
+.table thead th {
+    position: sticky; /* Pour rendre les en-têtes collants */
+    top: 0px;
+    background-color: var(--map_dock_bg);
+    backdrop-filter:blur(5px);
+    border-bottom: : 1px solid var(--light) !important;
+}
+
+/* Ajoute un remplissage en haut pour décaler le point de départ de la barre de défilement */
+#liz_layer_popup_GroupDiv {
+    padding-top: 20px; /* Ajustez cette valeur pour positionner la barre plus bas */
+    overflow-y: auto; /* Autorise le défilement vertical */
+    max-height: 90vh; /* Définit une hauteur maximale pour le popup, 90% de la hauteur de l'écran */
+}
+
+/* Ajouter de la marge en haut pour un décalage similaire */
+#liz_layer_popup_contentDiv {
+    max-height: 55vh; /* Définit une hauteur maximale pour le contenu */
+}
+
+.lizmapPopup.olPopup .lizmapPopupDiv, #map-content .lizmapPopupDiv {
+    background: none !important;
+}
