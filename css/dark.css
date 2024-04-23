@@ -1643,3 +1643,16 @@ div#liz_layer_popup_contentDiv,div#liz_layer_popup {
     background-color: #f8f8f8;
 }
 
+#sub-dock div.menu-content select {
+    max-width: none;
+}
+
+.dl-vertical dd:nth-child(2) {
+    text-align: center;
+    font-weight: normal !important;
+}
+
+.dl-vertical dd {
+    margin-left: 0px;
+}
+
