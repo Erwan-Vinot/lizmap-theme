@@ -1680,3 +1680,32 @@ div#liz_layer_popup_contentDiv,div#liz_layer_popup {
 .lizmapPopup.olPopup .lizmapPopupDiv, #map-content .lizmapPopupDiv {
     background: none !important;
 }
+
+#right-dock div.lizmapPopupDiv {
+    color:black;
+    max-width: 400px;
+}
+
+div#right-dock-content {
+    max-height: 600px !important;
+}
+
+#right-dock > .tabbable {
+    margin-right: 0px !important;
+}
+
+#right-dock #popupcontent div.menu-content {
+    margin-top: 0px !important;
+}
+
+#right-dock .lizmapPopupSingleFeature {
+    margin-bottom: 20px !important;
+}
+
+#right-dock #popupcontent .lizmapPopupDiv {
+    border-bottom: solid 2px rgba(0,0,0,0.33);
+}
+
+#right-dock #popupcontent .lizmapPopupContent h4 {
+    border: none;
+}
