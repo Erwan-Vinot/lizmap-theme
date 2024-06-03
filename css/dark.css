@@ -84,7 +84,7 @@ Make sure you also use 1:1 aspect ratio project thumbnails
     --gradient_saturate:    1.0;                  this breaks the "fixed" header for some reason                        */
     
     /* Map elements (not finished but works for black on white) */
-    --map_dock_bg:rgba(255,255,255,0.70);
+    --map_dock_bg:rgba(255,255,255,0.80);
     --map_dock_txt:black;
 
     /* dégradés - gradients */
@@ -660,7 +660,7 @@ a:active .icon,
 .alert-block {
     z-index: 20000;
     position: fixed;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%,0%);
 }
 
 .alert-danger,
@@ -1009,11 +1009,6 @@ lizmap-overviewmap .ol-overviewmap button span {
     display: none;
 }
 
-/* boutons noirs en blanc - fix black buttons */
-#button-selectiontool, #button-atlas {
-    filter:invert();
-}
-
 /* plus de fond noir transparent - remove dock dark background*/
 #dock,
 #mapmenu,
@@ -1053,27 +1048,16 @@ ul.dropdown-menu.dropdown-menu-right {
     text-align: left;
 }
 
-.icon-star {
-    filter: invert();
-}
-
-.icon .icon-globe {
-    filter: invert() !important;
-}
-
 .nav-list>.active> a {
     background: var(--light-transparent) !important;
-    filter: brightness(120%)!important;
-    border-radius: 10px;
+    box-shadow:inset 0px 0px 4px 1px var(--light);
+    filter: brightness(140%);
 }
 
 #mapmenu .nav-list > li.active .icon {
-    filter: brightness(500%)!important;
+    filter: brightness(0%)!important;
 }
 
-#mapmenu .nav-list > li.draw.active .icon {
-    filter: invert(1) !important;
-}
 
 /* fenetres ajustées et en blanc - white resized windows */
 #dock div.menu-content,
@@ -1265,6 +1249,14 @@ div.modal h3,
 .alert.alert-block.alert-error.fade.in {
     top: 50px;
     right: 600px;
+}
+
+.alert .close {
+    color: #000000 !important;
+}
+
+#message .alert {
+    margin-top: 2px;
 }
 
 /* ajustements outil permalien - fix permalink */
@@ -1599,7 +1591,7 @@ iframe {
 #map-content .lizmapPopup .olPopupCloseBox {
     background-color: var(--mid);
     border-radius: 5px;
-    right: 5px !important;
+    margin-right: 5px;
 }
 
 .lizmapPopup.olPopup .lizmapPopupTable thead, #map-content .lizmapPopupTable thead  {
@@ -1643,69 +1635,28 @@ div#liz_layer_popup_contentDiv,div#liz_layer_popup {
     background-color: #f8f8f8;
 }
 
-#sub-dock div.menu-content select {
-    max-width: none;
+/* test */
+#map-content {
+    margin-left: 0;
 }
-
-.dl-vertical dd:nth-child(2) {
-    text-align: center;
-    font-weight: normal !important;
+  
+#mapmenu {
+    height: auto;
+    margin: 3px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.8);
+    border: solid 1px var(--mid-transparent);
 }
-
-.dl-vertical dd {
-    margin-left: 0px;
+  
+#mapmenu .icon, .icon-star {
+      filter: none !important; 
+      filter: brightness(0.4) !important;
 }
-
-/* Pour rendre les en-têtes de table "sticky" */
-.table thead th {
-    position: sticky; /* Pour rendre les en-têtes collants */
-    top: 0px;
-    background-color: var(--map_dock_bg);
-    backdrop-filter:blur(5px);
-    border-bottom: : 1px solid var(--light) !important;
+  
+div#dock-content{
+      padding-left:2px;
 }
-
-/* Ajoute un remplissage en haut pour décaler le point de départ de la barre de défilement */
-#liz_layer_popup_GroupDiv {
-    padding-top: 20px; /* Ajustez cette valeur pour positionner la barre plus bas */
-    overflow-y: auto; /* Autorise le défilement vertical */
-    max-height: 90vh; /* Définit une hauteur maximale pour le popup, 90% de la hauteur de l'écran */
-}
-
-/* Ajouter de la marge en haut pour un décalage similaire */
-#liz_layer_popup_contentDiv {
-    max-height: 55vh; /* Définit une hauteur maximale pour le contenu */
-}
-
-.lizmapPopup.olPopup .lizmapPopupDiv, #map-content .lizmapPopupDiv {
-    background: none !important;
-}
-
-#right-dock div.lizmapPopupDiv {
-    color:black;
-    max-width: 400px;
-}
-
-div#right-dock-content {
-    max-height: 600px !important;
-}
-
-#right-dock > .tabbable {
-    margin-right: 0px !important;
-}
-
-#right-dock #popupcontent div.menu-content {
-    margin-top: 0px !important;
-}
-
-#right-dock .lizmapPopupSingleFeature {
-    margin-bottom: 20px !important;
-}
-
-#right-dock #popupcontent .lizmapPopupDiv {
-    border-bottom: solid 2px rgba(0,0,0,0.33);
-}
-
-#right-dock #popupcontent .lizmapPopupContent h4 {
-    border: none;
+  
+div#switcher-baselayer {
+      padding-top: 2px;
 }
