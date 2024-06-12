@@ -1120,12 +1120,13 @@ div.modal h3,
 
 /* bouton fermer dock simplifié - optimize close deck button */
 #dock-close {
-    position: absolute !important;
+    position: fixed;
     transform: translate(-10px, 40px);
     top: 10px;
     right: 3px;
     width: 28px;
     height: 28px;
+    left: 348px !important;
 }
 
 #dock-close, #right-dock-close{
@@ -1150,6 +1151,10 @@ div.modal h3,
 /* espace pour les actions de couche - add space of layer actions*/
 #switcher-layers-container > div.menu-content {
     padding-top: 30px;
+}
+
+#switcher-layers {
+    width: 300px;
 }
 
 /* placement des actions de couche - layer actions placement*/
@@ -1591,7 +1596,7 @@ iframe {
 #map-content .lizmapPopup .olPopupCloseBox {
     background-color: var(--mid);
     border-radius: 5px;
-    margin-right: 5px;
+    right: 5px !important;
 }
 
 .lizmapPopup.olPopup .lizmapPopupTable thead, #map-content .lizmapPopupTable thead  {
@@ -1635,7 +1640,7 @@ div#liz_layer_popup_contentDiv,div#liz_layer_popup {
     background-color: #f8f8f8;
 }
 
-/* test */
+/* ***************************** à ranger *******************************/
 #map-content {
     margin-left: 0;
 }
@@ -1659,4 +1664,146 @@ div#dock-content{
   
 div#switcher-baselayer {
       padding-top: 2px;
+}
+
+.dl-vertical dd {
+    margin-left: 0px;
+}
+
+/* Pour rendre les en-têtes de table "sticky" */
+.table thead th {
+    position: sticky; /* Pour rendre les en-têtes collants */
+    top: 0px;
+    background-color: var(--map_dock_bg);
+    backdrop-filter:blur(5px);
+    border-bottom: 1px solid var(--light) !important;
+}
+
+/* Ajoute un remplissage en haut pour décaler le point de départ de la barre de défilement */
+#liz_layer_popup_GroupDiv {
+    padding-top: 20px; /* Ajustez cette valeur pour positionner la barre plus bas */
+    overflow-y: auto; /* Autorise le défilement vertical */
+    max-height: 90vh; /* Définit une hauteur maximale pour le popup, 90% de la hauteur de l'écran */
+}
+
+/* Ajouter de la marge en haut pour un décalage similaire */
+#liz_layer_popup_contentDiv {
+    max-height: 55vh; /* Définit une hauteur maximale pour le contenu */
+}
+
+.lizmapPopup.olPopup .lizmapPopupDiv, #map-content .lizmapPopupDiv {
+    background: none !important;
+}
+
+#right-dock div.lizmapPopupDiv {
+    color:black;
+    max-width: 400px;
+}
+
+
+#right-dock #popupcontent div.menu-content {
+    margin-top: 0px !important;  
+
+}
+
+#right-dock .lizmapPopupSingleFeature {
+    margin-bottom: 20px !important;
+}
+    
+#right-dock #popupcontent .lizmapPopupContent h4 {
+    border: none;
+}
+
+#sub-dock div.menu-content select {
+    max-width: none;
+}
+
+.dl-vertical dd:nth-child(2) {
+    text-align: center;
+    font-weight: normal !important;
+}
+    
+    
+#right-dock #popupcontent .lizmapPopupDiv {
+    border-bottom: solid 2px rgba(0,0,0,0.33);
+}
+
+/* fix atlas */
+.menu-content .icon-globe {
+    display: none;
+}
+
+#select-atlas-layer {
+    margin-left: 11px;
+}
+
+#atlas-content {
+    border: none !important;
+}
+
+.liz-atlas-run {
+    display: none;
+}
+/* Opti téléhpone */
+#content.mobile #dock, #content.mobile #sub-dock{
+    background: none !important;
+}
+
+@media only screen and (pointer: coarse), (-webkit-min-device-pixel-ratio: 2), only screen and ( min--moz-device-pixel-ratio: 2), only screen and ( -o-min-device-pixel-ratio: 2/1), only screen and ( min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx), only screen and (max-height: 640px), only screen and (max-device-height: 640px) {
+    #headermenu.mobile #auth form#nominatim-search{
+        right : 0px !important;
+        top: 0px !important;
+    }
+
+    #dock-close {
+        left: 318px !important;
+    }
+    
+    #dock ul#dock-tabs {
+    translate: 210px -3px !important;
+    }
+    
+    #docks-wrapper {
+        width: 120%;
+        padding-top: 2px !important;
+    }
+    
+    #content #dock {
+        background: none !important;
+    }
+    
+    div#overview-box, span#navbar {
+        display: none;
+    }
+    
+    #headermenu .navbar-search .search-query {
+        left: 0px !important
+    }
+    
+    #headermenu .navbar-search .search-icon {
+    right: 115px !important;
+    }
+    
+    #mapmenu {
+        top: 42px
+    }
+    
+    #menuToggle.opened ~ #mapmenu {
+        min-height: 150px !important;
+        width: max-content;
+        padding-right: 20px;
+    }
+    
+    .home .menu-title {
+    padding-right: 30px;
+    }
+
+    #mapmenu > div > ul {
+        background: none;
+    }
+    
+    .nav-list {
+        padding-right: 0px;
+    }
+     
 }
