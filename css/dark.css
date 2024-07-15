@@ -993,11 +993,19 @@ lizmap-mouse-position > div.coords-unit > select {
 
 lizmap-overviewmap .ol-overviewmap button {
     background-color: transparent;
-    border: solid 1px var(--mid-transparent)
 }
 
 lizmap-overviewmap .ol-overviewmap button span {
     font-size: 12pt !important;
+}
+
+.ol-overviewmap-box {
+    border:none;
+}
+
+.ol-control button:hover, .ol-control button:focus {
+    outline:none;
+    background-color: var(--light-transparent);
 }
 
 /* -------------------------------------------- Carto - map menu ---------------------------------------------- */
@@ -1074,8 +1082,8 @@ ul.nav.nav-tabs:not(#right-dock-tabs),
 .alert,
 #tooltipPopupContent,
 #switcher-layers-actions #theme-selector.btn-group > ul{
-    width: max-content !important;
-    height: max-content !important;
+    width: max-content;
+    height: max-content;
     border: solid 1px var(--mid-transparent);
     border-radius: 10px;
     background: var(--map_dock_bg);
@@ -1119,7 +1127,7 @@ div.modal h3,
 /* -------------------------------------------- Carto - outils - tools ---------------------------------------------- */
 
 /* bouton fermer dock simplifié - optimize close deck button */
-#dock-close {
+/* #dock-close {
     position: fixed;
     transform: translate(-10px, 40px);
     top: 10px;
@@ -1127,7 +1135,7 @@ div.modal h3,
     width: 28px;
     height: 28px;
     left: 348px !important;
-}
+} */
 
 #dock-close, #right-dock-close{
     border-color: #e0e0e0 !important;
@@ -1153,8 +1161,8 @@ div.modal h3,
     padding-top: 30px;
 }
 
-#switcher-layers {
-    width: 300px;
+div#switcher-layers-container {
+    overflow-x: hidden !important;
 }
 
 /* placement des actions de couche - layer actions placement*/
@@ -1256,6 +1264,10 @@ div.modal h3,
     right: 600px;
 }
 
+#print-template{
+    max-width: unset !important;
+}
+
 .alert .close {
     color: #000000 !important;
 }
@@ -1277,6 +1289,14 @@ input.btn-geobookmark-add.btn.btn-mini {
 /* ajustements giga marge atlas - fix huge atlas margin */
 #content.right-dock-visible #map-content {
     margin-right: 0% !important;
+}
+
+#right-dock {
+    width: auto !important;
+}
+
+#liz-atlas-select {
+    width: auto !important;
 }
 
 /* ajustements atlas, aspect minidock sous l'échelle - fix atlas, minidock aspect placed under scalebar */
@@ -1378,7 +1398,6 @@ input.btn-geobookmark-add.btn.btn-mini {
 
 /* fix table bg + text */
 #popupcontent .lizmapPopupTable *{
-    background-color: white !important;
     text-align: left !important;
 }
 
@@ -1744,66 +1763,98 @@ div#switcher-baselayer {
 .liz-atlas-run {
     display: none;
 }
+
 /* Opti téléhpone */
 #content.mobile #dock, #content.mobile #sub-dock{
     background: none !important;
 }
 
-@media only screen and (pointer: coarse), (-webkit-min-device-pixel-ratio: 2), only screen and ( min--moz-device-pixel-ratio: 2), only screen and ( -o-min-device-pixel-ratio: 2/1), only screen and ( min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx), only screen and (max-height: 640px), only screen and (max-device-height: 640px) {
-    #headermenu.mobile #auth form#nominatim-search{
-        right : 0px !important;
-        top: 0px !important;
-    }
+@media 
+       ( -webkit-min-device-pixel-ratio: 2 ),   
+       only screen and ( pointer: coarse ),
+       only screen and ( min--moz-device-pixel-ratio: 2 ),
+       only screen and ( -o-min-device-pixel-ratio: 2/1 ),
+       only screen and ( min-device-pixel-ratio: 2 ),
+       only screen and ( min-resolution: 192dpi ),
+       only screen and ( min-resolution: 2dppx ),
+       only screen and ( max-height: 640px ),
+       only screen and ( max-device-height: 640px ) {
 
-    #dock-close {
-        left: 318px !important;
-    }
-    
-    #dock ul#dock-tabs {
-    translate: 210px -3px !important;
-    }
-    
-    #docks-wrapper {
-        width: 120%;
-        padding-top: 2px !important;
-    }
-    
-    #content #dock {
-        background: none !important;
-    }
-    
-    div#overview-box, span#navbar {
-        display: none;
-    }
-    
-    #headermenu .navbar-search .search-query {
-        left: 0px !important
-    }
-    
-    #headermenu .navbar-search .search-icon {
-    right: 115px !important;
-    }
-    
-    #mapmenu {
-        top: 42px
-    }
-    
-    #menuToggle.opened ~ #mapmenu {
-        min-height: 150px !important;
-        width: max-content;
-        padding-right: 20px;
-    }
-    
-    .home .menu-title {
-    padding-right: 30px;
-    }
+            #headermenu.mobile #auth form#nominatim-search {
+                right : 0px !important;
+                top: 0px !important;
+            }
 
-    #mapmenu > div > ul {
-        background: none;
-    }
-    
-    .nav-list {
-        padding-right: 0px;
-    }
-     
+            #menuToggle.opened ~ #mapmenu {
+                min-height: 150px !important;
+                width: max-content;
+                padding-right: 20px;
+            }
+
+            #headermenu .navbar-search .search-query {
+                left: 0px !important
+            }
+            
+            .home .menu-title {
+                padding-right: 30px;
+            }
+
+            #mapmenu > div > ul {
+                background: none;
+            }
+            
+            #dock ul#dock-tabs {
+            translate: 210px -3px !important;
+            }
+            
+            #docks-wrapper {
+                width: 120%;
+                padding-top: 2px !important;
+            }
+            
+            #content #dock {
+                background: none !important;
+            }
+            
+            div#overview-box, span#navbar {
+                display: none;
+            }
+            
+            #headermenu .navbar-search .search-icon {
+            right: 115px !important;
+            }
+            
+            #mapmenu {
+                top: 42px
+            }
+            
+            .nav-list {
+                padding-right: 0px;
+            }
+            
+        }
+
+/* test resize */
+
+#switcher-layers-container > div.menu-content {
+    min-width: 316px !important;
+    max-width: 730px !important;
+    width: auto;
+    height: unset;
+    max-height: 100%;
+    resize: both !important;
+}
+
+div#switcher-baselayer {
+    width: max-content;
+    height: max-content;
+}
+
+::-webkit-resizer {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'>    <line x1='1' y1='10' x2='10' y2='1' stroke='%23C8CCE0' stroke-width='3' stroke-linecap='round'/>    <line x1='7' y1='10' x2='10' y2='7' stroke='%23C8CCE0' stroke-width='2' stroke-linecap='round'/></svg>") !important;
+}
+
+
+.modal-body {
+    max-height: 900px;
 }
